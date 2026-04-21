@@ -3,34 +3,34 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Code, Sparkles } from "lucide-react";
+import { ExternalLink, Github, Code, Sparkles, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 
 const projects = [
   {
-    title: "AI Personal Portfolio",
-    description: "A state-of-the-art portfolio featuring GenAI integrations and seamless smooth animations.",
-    image: PlaceHolderImages.find(img => img.id === 'project-3')?.imageUrl || "",
-    tags: ["Next.js", "Genkit", "Tailwind"],
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "EcoTrack Mobile App",
-    description: "Cross-platform mobile application for tracking personal carbon footprints and eco-habits.",
+    title: "AnyWall",
+    description: "A sleek digital wallpaper platform featuring a curated collection of high-quality visuals and art for modern devices.",
     image: PlaceHolderImages.find(img => img.id === 'project-1')?.imageUrl || "",
-    tags: ["React Native", "Firebase", "TypeScript"],
+    tags: ["Next.js", "Tailwind", "Vercel"],
     github: "#",
-    live: "#",
+    live: "https://anywall.vercel.app",
   },
   {
-    title: "DevNexus Frontend",
-    description: "Highly responsive developer community dashboard with real-time project collaboration tools.",
+    title: "Advanced Admin Panel",
+    description: "A comprehensive management dashboard for enterprise applications, featuring real-time analytics and user control systems.",
     image: PlaceHolderImages.find(img => img.id === 'project-2')?.imageUrl || "",
-    tags: ["React", "Framer Motion", "Shadcn"],
+    tags: ["React", "Dashboard", "Analytics"],
     github: "#",
-    live: "#",
+    live: "https://adminpannel-chi.vercel.app",
+  },
+  {
+    title: "SRS Online Services",
+    description: "An integrated service portal designed to provide seamless digital solutions and professional customer management tools.",
+    image: PlaceHolderImages.find(img => img.id === 'project-3')?.imageUrl || "",
+    tags: ["Web App", "Services", "Digital Solutions"],
+    github: "#",
+    live: "https://srs-online-servises.vercel.app",
   },
 ];
 
@@ -46,7 +46,7 @@ export const Projects = () => {
             </div>
             <h2 className="text-4xl font-bold mb-4">Crafting <span className="text-chart-3">Digital</span> Realities</h2>
             <p className="text-lg text-muted-foreground">
-              A selection of projects where I've blended creative design with robust engineering.
+              A selection of projects where I've blended creative design with robust engineering to solve real-world problems.
             </p>
           </div>
           <button className="px-6 py-3 glass rounded-2xl font-bold text-sm flex items-center gap-2 hover:bg-white transition-all">
@@ -76,10 +76,20 @@ export const Projects = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                    <div className="flex gap-4">
-                      <a href={project.github} className="p-3 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white/40 transition-colors">
+                      <a 
+                        href={project.github} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="p-3 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white/40 transition-colors"
+                      >
                         <Github className="w-5 h-5" />
                       </a>
-                      <a href={project.live} className="p-3 bg-primary rounded-full text-white hover:bg-primary/80 transition-colors">
+                      <a 
+                        href={project.live} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="p-3 bg-primary rounded-full text-white hover:bg-primary/80 transition-colors"
+                      >
                         <ExternalLink className="w-5 h-5" />
                       </a>
                    </div>
@@ -105,10 +115,15 @@ export const Projects = () => {
                 </p>
                 <div className="pt-4 border-t border-border flex items-center justify-between">
                   <span className="text-xs font-medium text-muted-foreground">Case Study</span>
-                  <button className="text-primary text-sm font-bold flex items-center gap-1 group/btn">
+                  <a 
+                    href={project.live} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-primary text-sm font-bold flex items-center gap-1 group/btn"
+                  >
                     Details
                     <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </button>
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -118,5 +133,3 @@ export const Projects = () => {
     </section>
   );
 };
-
-import { ChevronRight } from "lucide-react";
