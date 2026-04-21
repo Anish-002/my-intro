@@ -38,8 +38,8 @@ const services = [
 export const Services = () => {
   return (
     <section id="services" className="py-32 bg-white relative">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-24">
+      <div className="container mx-auto px-4 md:px-8 xl:px-12 max-w-[1400px]">
+        <div className="text-center max-w-5xl mx-auto mb-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -54,7 +54,7 @@ export const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-black text-slate-900 mb-8"
+            className="text-5xl md:text-7xl xl:text-8xl font-black text-slate-900 mb-8"
           >
             High-Impact <span className="text-gradient">Solutions.</span>
           </motion.h2>
@@ -63,13 +63,13 @@ export const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-slate-500 font-medium"
+            className="text-xl xl:text-2xl text-slate-500 font-medium max-w-3xl mx-auto"
           >
             I provide end-to-end digital services designed to scale your business and elevate your digital presence.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {services.map((service, idx) => (
             <motion.div
               key={idx}
@@ -78,17 +78,17 @@ export const Services = () => {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
               whileHover={{ y: -8 }}
-              className="glass-card p-10 md:p-14 rounded-[3.5rem] group hover:border-blue-200 transition-all duration-500"
+              className="glass-card p-10 md:p-14 xl:p-16 rounded-[4rem] group hover:border-blue-200 transition-all duration-500"
             >
-              <div className="flex flex-col md:flex-row gap-8 items-start">
-                <div className={`w-20 h-20 rounded-[2rem] ${service.color} flex items-center justify-center text-white shadow-2xl ${service.shadow} group-hover:scale-110 transition-transform duration-500 flex-shrink-0`}>
+              <div className="flex flex-col xl:flex-row gap-8 xl:gap-12 items-start">
+                <div className={`w-24 h-24 rounded-[2.5rem] ${service.color} flex items-center justify-center text-white shadow-2xl ${service.shadow} group-hover:scale-110 transition-transform duration-500 flex-shrink-0`}>
                   {service.icon}
                 </div>
-                <div>
-                  <h3 className="text-3xl font-black text-slate-900 mb-5 group-hover:text-blue-600 transition-colors">
+                <div className="flex-1">
+                  <h3 className="text-3xl md:text-4xl font-black text-slate-900 mb-6 group-hover:text-blue-600 transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-lg text-slate-500 leading-relaxed font-medium">
+                  <p className="text-lg md:text-xl text-slate-500 leading-relaxed font-medium">
                     {service.description}
                   </p>
                 </div>

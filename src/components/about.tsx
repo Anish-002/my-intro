@@ -15,8 +15,8 @@ const stats = [
 export const About = () => {
   return (
     <section id="about" className="py-32 relative overflow-hidden bg-white">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+      <div className="container mx-auto px-4 md:px-8 xl:px-12 max-w-[1400px]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -65,11 +65,11 @@ export const About = () => {
               <Sparkles className="w-3 h-3" />
               01_ABOUT_ME
             </div>
-            <h2 className="text-5xl md:text-7xl font-black mb-10 leading-[0.9] text-slate-900">
+            <h2 className="text-5xl md:text-7xl xl:text-8xl font-black mb-10 leading-[0.9] text-slate-900">
               Turning <span className="text-gradient">Ideas</span> into <br />
               Functional Architectures.
             </h2>
-            <p className="text-xl text-slate-500 mb-14 leading-relaxed font-medium max-w-xl">
+            <p className="text-xl xl:text-2xl text-slate-500 mb-14 leading-relaxed font-medium max-w-2xl">
               I am Anish Kushwaha, a dedicated Software Engineer specializing in high-performance Flutter and Next.js applications. 
               I focus on modular code and seamless user experiences.
             </p>
@@ -82,11 +82,11 @@ export const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="glass-card p-6 rounded-[1.5rem] hover:bg-white hover:-translate-y-1 transition-all duration-500"
+                  className="glass-card p-6 md:p-8 rounded-[2rem] hover:bg-white hover:-translate-y-1 transition-all duration-500"
                 >
-                  <div className={`${stat.color} mb-4 ${stat.bg} w-10 h-10 rounded-xl flex items-center justify-center`}>{stat.icon}</div>
-                  <h4 className="text-3xl font-black text-slate-900">{stat.value}</h4>
-                  <p className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">{stat.label}</p>
+                  <div className={`${stat.color} mb-4 ${stat.bg} w-12 h-12 rounded-2xl flex items-center justify-center`}>{stat.icon}</div>
+                  <h4 className="text-3xl md:text-4xl font-black text-slate-900">{stat.value}</h4>
+                  <p className="text-[10px] md:text-xs font-mono font-bold text-slate-400 uppercase tracking-widest mt-1">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
