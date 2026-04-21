@@ -14,7 +14,7 @@ const stats = [
 
 export const About = () => {
   return (
-    <section id="about" className="py-32 relative overflow-hidden bg-[#020617]">
+    <section id="about" className="py-32 relative overflow-hidden bg-slate-50/50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <motion.div
@@ -24,7 +24,7 @@ export const About = () => {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative z-10 aspect-square rounded-[3rem] overflow-hidden border-2 border-white/10 group">
+            <div className="relative z-10 aspect-square rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl group">
               <Image
                 src="https://picsum.photos/seed/anishdev/1000/1000"
                 alt="Anish Kushwaha"
@@ -33,24 +33,24 @@ export const About = () => {
                 className="object-cover w-full h-full scale-110 group-hover:scale-100 transition-transform duration-1000"
                 data-ai-hint="developer workspace"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent opacity-60" />
             </div>
             {/* Decorative Elements */}
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 rounded-full blur-[80px]" />
-            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-accent/20 rounded-full blur-[80px]" />
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-[80px]" />
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-accent/10 rounded-full blur-[80px]" />
             
             <motion.div 
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
-              className="absolute -bottom-8 -right-8 glass p-6 rounded-3xl z-20 shadow-2xl border-white/20"
+              className="absolute -bottom-8 -right-8 bg-white p-6 rounded-3xl z-20 shadow-2xl border border-slate-100"
             >
               <div className="flex items-center gap-4">
-                <div className="bg-primary/20 p-3 rounded-2xl">
+                <div className="bg-primary/10 p-3 rounded-2xl">
                   <Smartphone className="w-8 h-8 text-primary" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-muted-foreground uppercase">Expertise</p>
-                  <p className="text-lg font-bold">Flutter Specialist</p>
+                  <p className="text-xs font-bold text-slate-400 uppercase">Expertise</p>
+                  <p className="text-lg font-bold text-slate-900">Flutter Specialist</p>
                 </div>
               </div>
             </motion.div>
@@ -66,10 +66,10 @@ export const About = () => {
               <Lightbulb className="w-4 h-4" />
               <span className="text-xs font-bold uppercase tracking-widest">The Story</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
+            <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight text-slate-900">
               Crafting <span className="text-gradient">Seamless</span> Mobile Experiences
             </h2>
-            <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
+            <p className="text-xl text-slate-600 mb-12 leading-relaxed">
               I am Anish Kushwaha, a dedicated Flutter and Next.js developer with a focus on building
               premium digital solutions. As a quick learner and AI enthusiast, I specialize in bridging
               the gap between complex problems and elegant, user-centric applications.
@@ -83,16 +83,16 @@ export const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="glass-card p-6 rounded-[2rem] hover:bg-white/[0.05]"
+                  className="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-md transition-shadow"
                 >
                   <div className="text-primary mb-3">{stat.icon}</div>
-                  <h4 className="text-3xl font-extrabold mb-1">{stat.value}</h4>
-                  <p className="text-xs text-muted-foreground font-bold uppercase tracking-wider">{stat.label}</p>
+                  <h4 className="text-3xl font-extrabold mb-1 text-slate-900">{stat.value}</h4>
+                  <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
 
-            <button className="px-10 py-5 bg-white text-black rounded-full font-bold hover:bg-primary hover:text-white transition-all shadow-xl">
+            <button className="px-10 py-5 bg-slate-900 text-white rounded-full font-bold hover:bg-primary transition-all shadow-xl">
               Download Full Resume
             </button>
           </motion.div>

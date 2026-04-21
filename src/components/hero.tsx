@@ -37,13 +37,13 @@ export const Hero = () => {
   }, [displayText, isDeleting, titleIndex]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 pb-12 overflow-hidden bg-[#020617]">
+    <section className="relative min-h-screen flex items-center justify-center pt-20 pb-12 overflow-hidden bg-white">
       {/* Background Blobs */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-blob" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[120px] animate-blob animation-delay-2000" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-20 pointer-events-none" 
-             style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] animate-blob" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[120px] animate-blob animation-delay-2000" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-30" 
+             style={{ backgroundImage: 'radial-gradient(#e2e8f0 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 z-10">
@@ -52,7 +52,7 @@ export const Hero = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-primary/20 text-primary mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary mb-8"
           >
             <Sparkles className="w-4 h-4" />
             <span className="text-xs md:text-sm font-bold uppercase tracking-[0.2em]">Open for Premium Collaboration</span>
@@ -62,7 +62,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter mb-8 leading-none"
+            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter mb-8 leading-none text-slate-900"
           >
             I build powerful <br />
             <span className="text-gradient">apps & AI tools</span>
@@ -72,7 +72,7 @@ export const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-xl md:text-3xl text-muted-foreground font-medium mb-12 h-10"
+            className="text-xl md:text-3xl text-slate-500 font-medium mb-12 h-10"
           >
             <span>{displayText}</span>
             <span className="w-1 h-8 bg-primary inline-block ml-2 animate-pulse align-middle" />
@@ -86,14 +86,14 @@ export const Hero = () => {
           >
             <Link
               href="#projects"
-              className="w-full sm:w-auto px-10 py-5 bg-primary text-white rounded-full font-bold text-lg hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] transition-all flex items-center justify-center gap-2 group"
+              className="w-full sm:w-auto px-10 py-5 bg-primary text-white rounded-full font-bold text-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 group"
             >
               View Projects
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               href="#contact"
-              className="w-full sm:w-auto px-10 py-5 glass text-white rounded-full font-bold text-lg hover:bg-white/10 transition-all flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-10 py-5 bg-white border border-slate-200 text-slate-900 rounded-full font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center gap-2 shadow-sm"
             >
               Hire Me
               <Rocket className="w-5 h-5" />
@@ -106,23 +106,23 @@ export const Hero = () => {
            <motion.div 
              animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
              transition={{ duration: 5, repeat: Infinity }}
-             className="absolute top-[20%] left-[10%] p-6 glass rounded-3xl opacity-40 md:opacity-100"
+             className="absolute top-[20%] left-[10%] p-6 bg-white shadow-xl rounded-3xl border border-slate-100 opacity-40 md:opacity-100"
            >
-              <Smartphone className="w-12 h-12 text-blue-400" />
+              <Smartphone className="w-12 h-12 text-blue-500" />
            </motion.div>
            <motion.div 
              animate={{ y: [0, 20, 0], rotate: [0, -5, 0] }}
              transition={{ duration: 7, repeat: Infinity }}
-             className="absolute bottom-[20%] right-[10%] p-6 glass rounded-3xl opacity-40 md:opacity-100"
+             className="absolute bottom-[20%] right-[10%] p-6 bg-white shadow-xl rounded-3xl border border-slate-100 opacity-40 md:opacity-100"
            >
-              <Cpu className="w-12 h-12 text-purple-400" />
+              <Cpu className="w-12 h-12 text-purple-500" />
            </motion.div>
            <motion.div 
              animate={{ y: [20, 0, 20] }}
              transition={{ duration: 6, repeat: Infinity }}
-             className="absolute top-[60%] left-[5%] p-4 glass rounded-2xl opacity-20 md:opacity-60"
+             className="absolute top-[60%] left-[5%] p-4 bg-white shadow-lg rounded-2xl border border-slate-100 opacity-20 md:opacity-60"
            >
-              <Globe className="w-8 h-8 text-emerald-400" />
+              <Globe className="w-8 h-8 text-emerald-500" />
            </motion.div>
         </div>
       </div>
