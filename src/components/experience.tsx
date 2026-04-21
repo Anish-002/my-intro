@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Calendar, MapPin, ExternalLink, Smartphone, Laptop, Terminal } from "lucide-react";
+import { Calendar, ExternalLink, Smartphone, Laptop, Terminal } from "lucide-react";
 
 const experienceData = [
   {
@@ -12,7 +12,7 @@ const experienceData = [
     description: "I build financial dashboards and tools that help businesses manage their data. My focus is on making sure complex information is easy to read and systems run fast.",
     location: "Remote / Hybrid",
     link: "https://www.instagram.com/accountooze/",
-    icon: <Laptop className="w-8 h-8" />,
+    icon: <Laptop className="w-6 h-6" />,
     skills: ["Next.js", "TypeScript", "Tailwind", "Firebase"],
   },
   {
@@ -22,27 +22,27 @@ const experienceData = [
     description: "Spent 6 months building mobile apps. I focused on creating smooth user interfaces and making sure the apps felt reactive and snappy for users.",
     location: "Gujarat, India",
     link: "https://www.instagram.com/anylife_edge",
-    icon: <Smartphone className="w-8 h-8" />,
+    icon: <Smartphone className="w-6 h-6" />,
     skills: ["Flutter", "Dart", "REST APIs"],
   },
 ];
 
 export const Experience = () => {
   return (
-    <section id="experience" className="py-32 bg-slate-50/50 dot-grid relative">
+    <section id="experience" className="py-24 bg-slate-50/50 dot-grid relative">
       <div className="w-full px-6 md:px-12 xl:px-24">
-        <div className="mb-24">
+        <div className="mb-20">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white border border-slate-200 text-slate-400 mb-6 font-mono text-[10px] font-bold tracking-widest uppercase">
             <Terminal className="w-3 h-3" />
             My Journey
           </div>
-          <h2 className="text-5xl md:text-7xl xl:text-8xl font-black text-slate-900 mb-6">Work <span className="text-blue-600">History</span></h2>
-          <p className="text-xl md:text-2xl text-slate-500 font-medium">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-6">Work <span className="text-blue-600">History</span></h2>
+          <p className="text-lg md:text-xl text-slate-500 font-medium">
             Where I&apos;ve worked and what I learned along the way.
           </p>
         </div>
 
-        <div className="space-y-16">
+        <div className="space-y-12">
           {experienceData.map((exp, idx) => (
             <motion.div
               key={idx}
@@ -50,46 +50,46 @@ export const Experience = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group relative flex gap-8 md:gap-16 items-start"
+              className="group relative flex gap-6 md:gap-12 items-start"
             >
               <div className="flex flex-col items-center flex-shrink-0">
-                <div className={`w-16 h-16 rounded-[1.5rem] bg-white border border-slate-200 flex items-center justify-center text-slate-400 group-hover:text-blue-600 group-hover:border-blue-600 group-hover:scale-110 transition-all shadow-md group-hover:shadow-xl duration-500`}>
+                <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 group-hover:text-blue-600 group-hover:border-blue-600 group-hover:scale-110 transition-all shadow-md group-hover:shadow-lg duration-500">
                   {exp.icon}
                 </div>
                 {idx !== experienceData.length - 1 && (
-                  <div className="w-px h-full bg-slate-200 mt-8 group-hover:bg-blue-200 transition-colors" />
+                  <div className="w-px h-full bg-slate-200 mt-6 group-hover:bg-blue-200 transition-colors" />
                 )}
               </div>
 
-              <div className="flex-1 glass-card rounded-[3rem] p-10 md:p-16 hover:shadow-2xl transition-all duration-500 group-hover:border-blue-100 shadow-xl">
+              <div className="flex-1 glass-card rounded-[2.5rem] p-8 md:p-12 hover:shadow-xl transition-all duration-500 group-hover:border-blue-100 shadow-md">
                 <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-6 mb-8">
                   <div>
                     <div className="flex items-center gap-2 text-[10px] font-mono font-bold text-blue-600 uppercase tracking-widest mb-3">
                       <Calendar className="w-4 h-4" />
                       {exp.period}
                     </div>
-                    <h3 className="text-3xl md:text-5xl font-black text-slate-900">{exp.role}</h3>
+                    <h3 className="text-2xl md:text-4xl font-black text-slate-900">{exp.role}</h3>
                   </div>
                   <div className="flex flex-col xl:items-end gap-2">
                     <a 
                       href={exp.link} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-xl md:text-3xl font-bold text-slate-700 hover:text-blue-600 transition-colors group/link"
+                      className="flex items-center gap-2 text-lg md:text-2xl font-bold text-slate-700 hover:text-blue-600 transition-colors group/link"
                     >
                       {exp.company}
-                      <ExternalLink className="w-5 h-5 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+                      <ExternalLink className="w-4 h-4 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
                     </a>
                   </div>
                 </div>
 
-                <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-10 font-medium">
+                <p className="text-base md:text-lg text-slate-600 leading-relaxed mb-8 font-medium">
                   {exp.description}
                 </p>
 
                 <div className="flex flex-wrap gap-3">
                   {exp.skills.map(skill => (
-                    <span key={skill} className="px-4 py-1.5 bg-slate-50 border border-slate-100 rounded-xl text-[10px] font-mono font-bold text-slate-500 group-hover:bg-white transition-colors">
+                    <span key={skill} className="px-3 py-1 bg-slate-50 border border-slate-100 rounded-lg text-[9px] font-mono font-bold text-slate-500 group-hover:bg-white transition-colors">
                       {skill}
                     </span>
                   ))}

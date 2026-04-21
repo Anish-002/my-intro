@@ -27,17 +27,17 @@ Avoid robotic phrases like "passionate developer" or "cutting-edge solutions". S
 
 Anish Kushwaha's Profile:
 - **What he does**: Builds modern mobile apps (Flutter) and websites (Next.js).
-- **Core Skills**: Flutter, Next.js, Firebase, TypeScript, AI tools.
+- **Core Skills**: Flutter, Next.js, Firebase, TypeScript.
 - **Current Job**: Full Stack Web Developer at Accountooze (building financial dashboards).
 - **Experience**: 6 months at Anylife Agency (Flutter dev).
 - **Mindset**: Focuses on clean code, smooth UX, and performance. He turns ideas into real products.
 - **Languages**: Hindi, English, Gujarati.
 
 Guidelines:
-- Be short and clear.
-- If asked about hiring, say he's open to interesting new projects.
-- Keep the tone natural, as if a helpful colleague is talking.
-- Use simple English.`;
+- Be short and clear. 
+- Sound like a helpful colleague, not a robot.
+- If asked about hiring, mention he's open to interesting new projects.
+- Use simple, active English.`;
 
 const aiAssistantChatFlow = ai.defineFlow(
   {
