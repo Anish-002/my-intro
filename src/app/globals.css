@@ -37,15 +37,21 @@
 }
 
 @layer components {
-  .glass {
-    @apply bg-white/80 backdrop-blur-md border border-slate-200/50 shadow-sm;
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)];
   }
   .dot-grid {
     background-image: radial-gradient(circle, #e2e8f0 1px, transparent 1px);
     background-size: 24px 24px;
   }
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600;
+  }
+  .glow-primary {
+    @apply shadow-[0_0_20px_-5px_rgba(37,99,235,0.3)];
+  }
+  .glow-accent {
+    @apply shadow-[0_0_20px_-5px_rgba(124,58,237,0.3)];
   }
 }
 
@@ -59,11 +65,12 @@
   @apply bg-slate-200 rounded-full hover:bg-slate-300;
 }
 
-@keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
 
-.animate-scanline {
-  animation: scanline 8s linear infinite;
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }

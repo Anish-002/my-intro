@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronRight, Terminal, Github, Smartphone, Code2, Cpu } from "lucide-react";
+import { ChevronRight, Terminal, Github, Smartphone, Code2, Cpu, Sparkles } from "lucide-react";
 import Link from "next/link";
 
 const titles = ["Flutter Developer", "Full Stack Engineer", "AI Enthusiast", "Firebase Expert"];
@@ -36,33 +36,43 @@ export const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-white dot-grid">
+      {/* Background Glows */}
+      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-100/50 rounded-full blur-[120px] -z-10" />
+      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-indigo-100/50 rounded-full blur-[120px] -z-10" />
+
       <div className="container mx-auto px-4 md:px-6 z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="lg:col-span-7"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-100 border border-slate-200 text-slate-600 mb-6">
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 border border-slate-900/10 text-slate-600 mb-8"
+            >
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span className="text-[10px] font-mono font-bold tracking-widest uppercase">system.status: active_for_hire</span>
-            </div>
+              <Sparkles className="w-3 h-3 text-amber-500" />
+            </motion.div>
             
-            <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-slate-900 mb-8 leading-[0.9]">
+            <h1 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tight text-slate-900 mb-8 leading-[0.85]">
               Building <span className="text-gradient">Robust</span> <br />
               Digital Solutions.
             </h1>
 
-            <div className="text-xl md:text-2xl text-slate-500 font-mono mb-12 h-8">
-              <span>{`> ${displayText}`}</span>
-              <span className="w-2 h-6 bg-blue-600 inline-block ml-1 animate-pulse align-middle" />
+            <div className="text-xl md:text-2xl text-slate-500 font-mono mb-12 h-8 flex items-center">
+              <span className="text-blue-600 mr-3">❯</span>
+              <span>{displayText}</span>
+              <span className="w-2 h-7 bg-blue-600 inline-block ml-2 animate-pulse" />
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center gap-6">
               <Link
                 href="#projects"
-                className="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white rounded-lg font-bold text-sm hover:bg-blue-600 transition-all flex items-center justify-center gap-2 group shadow-xl shadow-slate-200"
+                className="w-full sm:w-auto px-10 py-5 bg-slate-900 text-white rounded-2xl font-bold text-sm hover:bg-blue-600 hover:scale-105 transition-all flex items-center justify-center gap-2 shadow-2xl shadow-blue-500/20 group"
               >
                 ./explore_work
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -70,7 +80,7 @@ export const Hero = () => {
               <Link
                 href="https://github.com/Anish-002"
                 target="_blank"
-                className="w-full sm:w-auto px-8 py-4 bg-white border border-slate-200 text-slate-900 rounded-lg font-bold text-sm hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-10 py-5 bg-white border border-slate-200 text-slate-900 rounded-2xl font-bold text-sm hover:bg-slate-50 hover:border-slate-300 hover:scale-105 transition-all flex items-center justify-center gap-2"
               >
                 <Github className="w-4 h-4" />
                 view_github
@@ -84,26 +94,29 @@ export const Hero = () => {
             transition={{ duration: 1 }}
             className="lg:col-span-5 hidden lg:block"
           >
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-tr from-blue-500/10 to-indigo-500/10 rounded-[2rem] blur-2xl" />
-              <div className="relative bg-white border border-slate-200 rounded-[2rem] p-8 shadow-2xl">
-                <div className="flex items-center gap-2 mb-6 border-b border-slate-100 pb-4">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-amber-400" />
-                    <div className="w-3 h-3 rounded-full bg-emerald-400" />
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[2.5rem] blur opacity-15 group-hover:opacity-25 transition duration-1000 group-hover:duration-200"></div>
+              <div className="relative glass-card rounded-[2.5rem] p-10">
+                <div className="flex items-center gap-2 mb-8 border-b border-slate-900/5 pb-6">
+                  <div className="flex gap-2">
+                    <div className="w-3.5 h-3.5 rounded-full bg-red-400 shadow-sm shadow-red-400/20" />
+                    <div className="w-3.5 h-3.5 rounded-full bg-amber-400 shadow-sm shadow-amber-400/20" />
+                    <div className="w-3.5 h-3.5 rounded-full bg-emerald-400 shadow-sm shadow-emerald-400/20" />
                   </div>
-                  <div className="text-[10px] font-mono text-slate-400 ml-4">anish_kushwaha.dart</div>
+                  <div className="text-xs font-mono text-slate-400 ml-6 flex items-center gap-2">
+                    <Terminal className="w-3 h-3" />
+                    anish_kushwaha.dart
+                  </div>
                 </div>
-                <div className="font-mono text-sm space-y-2 text-slate-600">
-                  <p><span className="text-indigo-600">class</span> <span className="text-blue-600">Developer</span> {'{'}</p>
-                  <p className="pl-4">String name = <span className="text-emerald-600">'Anish Kushwaha'</span>;</p>
-                  <p className="pl-4">List tools = [<span className="text-emerald-600">'Flutter'</span>, <span className="text-emerald-600">'Next.js'</span>];</p>
-                  <p className="pl-4">bool lovesAI = <span className="text-orange-600">true</span>;</p>
-                  <p className="pl-4"><span className="text-indigo-600">void</span> work() {'{'}</p>
-                  <p className="pl-8 text-slate-400">// Transforming coffee to code</p>
-                  <p className="pl-8">buildPremiumApps();</p>
-                  <p className="pl-4">{'}'}</p>
+                <div className="font-mono text-sm space-y-3 text-slate-600">
+                  <p><span className="text-indigo-600 font-bold">class</span> <span className="text-blue-600 font-bold">Developer</span> {'{'}</p>
+                  <p className="pl-6">String name = <span className="text-emerald-600">'Anish Kushwaha'</span>;</p>
+                  <p className="pl-6">List tools = [<span className="text-emerald-600">'Flutter'</span>, <span className="text-emerald-600">'Next.js'</span>];</p>
+                  <p className="pl-6">bool lovesAI = <span className="text-orange-600">true</span>;</p>
+                  <p className="pl-6"><span className="text-indigo-600 font-bold">void</span> work() {'{'}</p>
+                  <p className="pl-12 text-slate-400 italic">// Engineering digital magic</p>
+                  <p className="pl-12">buildPremiumApps();</p>
+                  <p className="pl-6">{'}'}</p>
                   <p>{'}'}</p>
                 </div>
               </div>
@@ -111,19 +124,23 @@ export const Hero = () => {
               {/* Floating Tech Badges */}
               <motion.div 
                 animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -top-6 -right-6 p-4 bg-white shadow-xl rounded-2xl border border-slate-100 flex items-center gap-3"
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-8 -right-8 p-5 glass-card rounded-2xl flex items-center gap-3 glow-primary"
               >
-                <Smartphone className="w-6 h-6 text-blue-500" />
-                <span className="text-xs font-bold text-slate-900">Flutter Specialist</span>
+                <div className="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center">
+                  <Smartphone className="w-6 h-6 text-blue-500" />
+                </div>
+                <span className="text-sm font-bold text-slate-900">Flutter Expert</span>
               </motion.div>
               <motion.div 
                 animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-                className="absolute -bottom-6 -left-6 p-4 bg-white shadow-xl rounded-2xl border border-slate-100 flex items-center gap-3"
+                transition={{ duration: 5, repeat: Infinity, delay: 0.5, ease: "easeInOut" }}
+                className="absolute -bottom-8 -left-8 p-5 glass-card rounded-2xl flex items-center gap-3 glow-accent"
               >
-                <Code2 className="w-6 h-6 text-indigo-500" />
-                <span className="text-xs font-bold text-slate-900">Next.js Expert</span>
+                <div className="w-10 h-10 bg-indigo-500/10 rounded-xl flex items-center justify-center">
+                  <Code2 className="w-6 h-6 text-indigo-500" />
+                </div>
+                <span className="text-sm font-bold text-slate-900">Next.js Guru</span>
               </motion.div>
             </div>
           </motion.div>
