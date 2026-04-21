@@ -1,71 +1,78 @@
 'use server';
 /**
- * @fileOverview A Genkit flow for generating a personalized introduction to Anish Kushwaha.
+ * @fileOverview A Genkit flow for a full interactive AI assistant for Anish Kushwaha.
  *
- * - aiAssistantIntroduction - A function that generates an introduction script for Anish Kushwaha.
- * - AiAssistantIntroductionInput - The input type for the aiAssistantIntroduction function.
- * - AiAssistantIntroductionOutput - The return type for the aiAssistantIntroduction function.
+ * - aiAssistantChat - A function that handles a conversation with Anish's AI concierge.
+ * - AiAssistantChatInput - The input type for the chat function.
+ * - AiAssistantChatOutput - The return type for the chat function.
  */
 
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
 
-const AiAssistantIntroductionInputSchema = z.object({
-  context:
-    z.string()
-      .optional()
-      .describe(
-        'Optional context or specific focus for the introduction (e.g., "highlight his frontend skills" or "introduce him as a mobile developer").'
-      ),
+const MessageSchema = z.object({
+  role: z.enum(['user', 'model']),
+  content: z.string(),
 });
-export type AiAssistantIntroductionInput = z.infer<typeof AiAssistantIntroductionInputSchema>;
 
-const AiAssistantIntroductionOutputSchema = z.object({
-  introduction: z.string().describe("A personalized introduction script for Anish Kushwaha."),
+const AiAssistantChatInputSchema = z.object({
+  message: z.string().describe('The user message or question.'),
+  history: z.array(MessageSchema).optional().describe('The conversation history.'),
 });
-export type AiAssistantIntroductionOutput = z.infer<typeof AiAssistantIntroductionOutputSchema>;
+export type AiAssistantChatInput = z.infer<typeof AiAssistantChatInputSchema>;
 
-const prompt = ai.definePrompt({
-  name: 'aiAssistantIntroductionPrompt',
-  input: { schema: AiAssistantIntroductionInputSchema },
-  output: { schema: AiAssistantIntroductionOutputSchema },
-  prompt: `You are an AI assistant tasked with introducing Anish Kushwaha, a skilled developer and AI enthusiast.
-Your goal is to provide a personalized and engaging introduction based on the context provided, highlighting his key skills and background.
+const AiAssistantChatOutputSchema = z.object({
+  response: z.string().describe("The AI assistant's response."),
+});
+export type AiAssistantChatOutput = z.infer<typeof AiAssistantChatOutputSchema>;
+
+const systemPrompt = `You are "Anish's Concierge", a premium AI assistant for Anish Kushwaha.
+Your goal is to represent Anish professionally and help potential clients or recruiters learn about him.
 
 Anish Kushwaha's Profile:
 - **Name**: Anish Kushwaha
-- **Core Strengths**: Best learning skills in Technology and Developments, Quick learner, AI enthusiast.
-- **Skills**: Mobile Development, Frontend Development, Backend Development, Programming.
-- **Education**: SSC, HSC, BCA.
+- **Profession**: Software Engineer, Flutter & Next.js Developer, AI Enthusiast.
+- **Current Work**: Full Stack Web Developer at Accountooze (engineering financial dashboards).
+- **Previous Work**: Flutter Developer at Anylife Digital Marketing Agency (6 months).
+- **Core Skills**: Flutter, Next.js, Firebase, TypeScript, Genkit, AI Tools.
+- **Education**: BCA (Dharmsinh Desai University), HSC, SSC.
 - **Languages**: Hindi, English, Gujarati.
-- **Extra Skills**: Video editing, Logo design, AI tools.
-- **AI Engagement**: Anish actively uses and demonstrates proficiency with AI tools.
+- **Socials**: 
+    - Instagram: https://www.instagram.com/ak_anish.02
+    - GitHub: https://github.com/Anish-002
+    - LinkedIn: https://www.linkedin.com/in/anish-kushwaha-1a6aa0277
+    - Email: kushwahaanish25@gmail.com
+- **Projects**:
+    - AnyWall: Digital marketplace.
+    - Admin Panel: Enterprise dashboard.
+    - SRS Digital Portal: Service ecosystem.
 
-If a 'context' is provided, tailor the introduction to that specific focus. Otherwise, provide a general overview of his professional profile, ensuring to mention his AI enthusiasm and proficiency.
-The introduction should be welcoming and professional.
+Guidelines:
+- Be welcoming, concise, and helpful.
+- If the user asks about skills, emphasize his proficiency in Flutter and Next.js.
+- If the user asks about hireability, mention he is open to innovative projects.
+- Keep the tone "Developer Premium" - modern and sharp.`;
 
-Context (if provided): {{{context}}}
-
-Generate the introduction script:`,
-});
-
-const aiAssistantIntroductionFlow = ai.defineFlow(
+const aiAssistantChatFlow = ai.defineFlow(
   {
-    name: 'aiAssistantIntroductionFlow',
-    inputSchema: AiAssistantIntroductionInputSchema,
-    outputSchema: AiAssistantIntroductionOutputSchema,
+    name: 'aiAssistantChatFlow',
+    inputSchema: AiAssistantChatInputSchema,
+    outputSchema: AiAssistantChatOutputSchema,
   },
   async (input) => {
-    const { output } = await prompt(input);
-    if (!output) {
-        throw new Error('Failed to generate introduction.');
-    }
-    return output;
+    const { text } = await ai.generate({
+      system: systemPrompt,
+      prompt: input.message,
+      // Pass history as well if supported by the model config, but for simplicity here:
+      history: input.history?.map(h => ({ role: h.role, content: [{ text: h.content }] })),
+    });
+
+    return { response: text };
   }
 );
 
-export async function aiAssistantIntroduction(
-  input: AiAssistantIntroductionInput
-): Promise<AiAssistantIntroductionOutput> {
-  return aiAssistantIntroductionFlow(input);
+export async function aiAssistantChat(
+  input: AiAssistantChatInput
+): Promise<AiAssistantChatOutput> {
+  return aiAssistantChatFlow(input);
 }

@@ -5,6 +5,7 @@ import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
 import { Experience } from "@/components/experience";
+import { Services } from "@/components/services";
 import { Skills } from "@/components/skills";
 import { Education } from "@/components/education";
 import { Projects } from "@/components/projects";
@@ -14,9 +15,9 @@ import { Footer } from "@/components/footer";
 
 export default function Home() {
   useEffect(() => {
-    // Custom cursor effect
+    // Custom cursor effect - simplified for clean vibe
     const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor hidden lg:block';
+    cursor.className = 'custom-cursor hidden lg:block pointer-events-none fixed z-[9999] w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/30 backdrop-blur-sm -translate-x-1/2 -translate-y-1/2 transition-transform duration-100 ease-out';
     document.body.appendChild(cursor);
 
     const moveCursor = (e: MouseEvent) => {
@@ -27,7 +28,7 @@ export default function Home() {
     window.addEventListener('mousemove', moveCursor);
     return () => {
       window.removeEventListener('mousemove', moveCursor);
-      document.body.removeChild(cursor);
+      if (document.body.contains(cursor)) document.body.removeChild(cursor);
     };
   }, []);
 
@@ -36,6 +37,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <Services />
       <Experience />
       <Skills />
       <Education />

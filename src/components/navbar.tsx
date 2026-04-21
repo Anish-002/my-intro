@@ -8,8 +8,8 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { name: "About", href: "#about" },
+  { name: "Services", href: "#services" },
   { name: "Experience", href: "#experience" },
-  { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
 ];
 
@@ -35,8 +35,8 @@ export const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div
           className={cn(
-            "flex items-center justify-between px-6 py-3 rounded-xl transition-all duration-300",
-            scrolled || isOpen ? "bg-white/80 backdrop-blur-lg border border-slate-200/50 shadow-sm" : "bg-transparent"
+            "flex items-center justify-between px-6 py-3 rounded-2xl transition-all duration-300",
+            scrolled || isOpen ? "bg-white/80 backdrop-blur-xl border border-slate-200/50 shadow-sm" : "bg-transparent"
           )}
         >
           <Link href="/" className="flex items-center gap-2.5 group">
