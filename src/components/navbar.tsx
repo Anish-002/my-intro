@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Terminal, Code2 } from "lucide-react";
+import { Menu, X, Terminal } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -29,13 +29,13 @@ export const Navbar = () => {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-[100] transition-all duration-300",
-        scrolled ? "py-4" : "py-6"
+        scrolled ? "py-2 md:py-4" : "py-4 md:py-8"
       )}
     >
-      <div className="container mx-auto px-4 md:px-8 xl:px-12 max-w-[1400px]">
+      <div className="w-full px-4 md:px-8 xl:px-16 2xl:px-24">
         <div
           className={cn(
-            "flex items-center justify-between px-8 py-4 rounded-[2rem] transition-all duration-300",
+            "flex items-center justify-between px-6 md:px-10 py-4 rounded-[2rem] transition-all duration-300",
             scrolled || isOpen ? "bg-white/80 backdrop-blur-xl border border-slate-200/50 shadow-lg" : "bg-transparent"
           )}
         >
@@ -61,7 +61,7 @@ export const Navbar = () => {
             ))}
             <Link
               href="#contact"
-              className="bg-slate-900 text-white px-8 py-3 rounded-xl text-sm font-mono font-bold hover:bg-blue-600 transition-all shadow-xl active:scale-95"
+              className="bg-slate-900 text-white px-10 py-3.5 rounded-xl text-sm font-mono font-bold hover:bg-blue-600 transition-all shadow-xl active:scale-95"
             >
               /contact_me
             </Link>

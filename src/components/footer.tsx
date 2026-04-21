@@ -28,45 +28,45 @@ const SocialLogos = {
 };
 
 const socialLinks = [
-  { icon: <SocialLogos.LinkedIn />, href: "https://www.linkedin.com/in/anish-kushwaha-1a6aa0277?utm_source=share_via&utm_content=profile&utm_medium=member_android", label: "LinkedIn", color: "hover:text-[#0077B5] hover:border-[#0077B5]" },
-  { icon: <SocialLogos.GitHub />, href: "https://github.com/Anish-002", label: "GitHub", color: "hover:text-[#333] hover:border-[#333]" },
-  { icon: <SocialLogos.Instagram />, href: "https://www.instagram.com/ak_anish.02", label: "Instagram", color: "hover:text-[#E4405F] hover:border-[#E4405F]" },
-  { icon: <SocialLogos.Facebook />, href: "https://www.facebook.com/share/1FBinqSsoP/", label: "Facebook", color: "hover:text-[#1877F2] hover:border-[#1877F2]" },
+  { icon: <SocialLogos.LinkedIn />, href: "https://www.linkedin.com/in/anish-kushwaha-1a6aa0277", label: "LinkedIn", color: "hover:text-[#0077B5]" },
+  { icon: <SocialLogos.GitHub />, href: "https://github.com/Anish-002", label: "GitHub", color: "hover:text-[#333]" },
+  { icon: <SocialLogos.Instagram />, href: "https://www.instagram.com/ak_anish.02", label: "Instagram", color: "hover:text-[#E4405F]" },
+  { icon: <SocialLogos.Facebook />, href: "https://www.facebook.com/share/1FBinqSsoP/", label: "Facebook", color: "hover:text-[#1877F2]" },
 ];
 
 export const Footer = () => {
   return (
-    <footer className="py-20 border-t border-slate-100 bg-white">
-      <div className="container mx-auto px-4 md:px-6">
+    <footer className="py-24 border-t border-slate-100 bg-white">
+      <div className="w-full px-4 md:px-8 xl:px-16 2xl:px-24">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12 mb-20">
-          <div className="space-y-6 max-w-sm text-center md:text-left">
-            <Link href="/" className="flex items-center justify-center md:justify-start gap-3 group">
-              <div className="bg-primary p-3 rounded-2xl shadow-lg">
-                <Terminal className="w-6 h-6 text-white" />
+          <div className="space-y-8 max-w-md text-center md:text-left">
+            <Link href="/" className="flex items-center justify-center md:justify-start gap-4 group">
+              <div className="bg-primary p-4 rounded-2xl shadow-lg">
+                <Terminal className="w-8 h-8 text-white" />
               </div>
-              <span className="text-3xl font-extrabold tracking-tight text-slate-900">
+              <span className="text-4xl font-black tracking-tight text-slate-900">
                 Anish<span className="text-primary">Dev</span>
               </span>
             </Link>
-            <p className="text-slate-500 text-sm font-medium leading-relaxed">
+            <p className="text-slate-500 text-lg font-medium leading-relaxed">
               Designing and developing high-performance digital experiences with Flutter, Next.js, and cutting-edge AI tools.
             </p>
-            <div className="flex items-center gap-3 text-slate-400 font-bold text-sm justify-center md:justify-start">
-              <Mail className="w-4 h-4 text-primary" />
+            <div className="flex items-center gap-4 text-slate-400 font-bold text-lg justify-center md:justify-start">
+              <Mail className="w-5 h-5 text-primary" />
               <a href="mailto:kushwahaanish25@gmail.com" className="hover:text-primary transition-colors">
                 kushwahaanish25@gmail.com
               </a>
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-8">
             {socialLinks.map((social, i) => (
               <a 
                 key={i} 
                 href={social.href} 
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`p-5 bg-white border border-slate-100 rounded-3xl text-slate-400 hover:scale-110 shadow-sm hover:shadow-md transition-all duration-500 ${social.color}`}
+                className={`p-6 bg-white border border-slate-100 rounded-[2rem] text-slate-400 hover:scale-110 shadow-md hover:shadow-xl transition-all duration-500 ${social.color}`}
                 aria-label={social.label}
               >
                 {social.icon}
@@ -75,18 +75,18 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-12 border-t border-slate-50">
-          <p className="text-sm font-bold text-slate-400 tracking-widest uppercase">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10 pt-16 border-t border-slate-50">
+          <p className="text-sm md:text-base font-bold text-slate-400 tracking-widest uppercase">
             © {new Date().getFullYear()} Anish Kushwaha. Built for the future.
           </p>
           
-          <p className="flex items-center gap-2 text-sm font-bold text-slate-400 uppercase tracking-widest">
-            Handcrafted with <Heart className="w-5 h-5 text-rose-500 fill-rose-500 animate-pulse" /> & <Sparkles className="w-5 h-5 text-accent" />
+          <p className="flex items-center gap-3 text-sm md:text-base font-bold text-slate-400 uppercase tracking-widest">
+            Handcrafted with <Heart className="w-6 h-6 text-rose-500 fill-rose-500 animate-pulse" /> & <Sparkles className="w-6 h-6 text-accent" />
           </p>
 
-          <div className="flex items-center gap-8">
-            <Link href="#" className="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-slate-900 transition-colors">Privacy</Link>
-            <Link href="#" className="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-slate-900 transition-colors">Terms</Link>
+          <div className="flex items-center gap-10">
+            <Link href="#" className="text-sm font-bold uppercase tracking-widest text-slate-400 hover:text-slate-900 transition-colors">Privacy</Link>
+            <Link href="#" className="text-sm font-bold uppercase tracking-widest text-slate-400 hover:text-slate-900 transition-colors">Terms</Link>
           </div>
         </div>
       </div>
