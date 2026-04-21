@@ -3,14 +3,13 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Terminal, Sparkles } from "lucide-react";
+import { Menu, X, Terminal, Code2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
   { name: "About", href: "#about" },
   { name: "Experience", href: "#experience" },
   { name: "Skills", href: "#skills" },
-  { name: "Education", href: "#education" },
   { name: "Projects", href: "#projects" },
 ];
 
@@ -29,44 +28,42 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-[90] transition-all duration-500",
-        scrolled ? "py-4" : "py-8"
+        "fixed top-0 left-0 right-0 z-[100] transition-all duration-300",
+        scrolled ? "py-4" : "py-6"
       )}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div
           className={cn(
-            "flex items-center justify-between px-6 py-4 rounded-full transition-all duration-500 border border-transparent",
-            scrolled || isOpen ? "glass bg-white/80 border-slate-200" : "bg-transparent"
+            "flex items-center justify-between px-6 py-3 rounded-xl transition-all duration-300",
+            scrolled || isOpen ? "bg-white/80 backdrop-blur-lg border border-slate-200/50 shadow-sm" : "bg-transparent"
           )}
         >
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="bg-primary p-2 rounded-xl group-hover:rotate-[360deg] transition-all duration-700 shadow-md">
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="bg-slate-900 p-2 rounded-lg group-hover:bg-blue-600 transition-colors shadow-lg">
               <Terminal className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bold tracking-tight text-slate-900">
-              Anish<span className="text-primary">Dev</span>
+            <span className="text-xl font-black tracking-tight text-slate-900">
+              ANISH<span className="text-blue-600">.DEV</span>
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-10">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm font-semibold text-slate-600 hover:text-primary transition-colors relative group"
+                className="text-xs font-mono font-bold text-slate-500 hover:text-blue-600 transition-colors tracking-widest uppercase"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
             <Link
               href="#contact"
-              className="bg-slate-900 text-white px-6 py-2.5 rounded-full font-bold hover:bg-primary transition-all shadow-lg flex items-center gap-2 group"
+              className="bg-slate-900 text-white px-6 py-2.5 rounded-lg text-xs font-mono font-bold hover:bg-blue-600 transition-all shadow-md active:scale-95"
             >
-              Contact Me
-              <Sparkles className="w-4 h-4 group-hover:animate-spin" />
+              /contact_me
             </Link>
           </div>
 
@@ -87,7 +84,7 @@ export const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-white shadow-2xl mt-4 mx-4 p-8 rounded-[2rem] md:hidden z-[80] border border-slate-100"
+            className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-slate-200 p-8 md:hidden z-[90]"
           >
             <div className="flex flex-col gap-6">
               {navItems.map((item) => (
@@ -95,7 +92,7 @@ export const Navbar = () => {
                   key={item.name}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-2xl font-bold text-slate-900 hover:text-primary transition-colors"
+                  className="text-2xl font-black text-slate-900 hover:text-blue-600 transition-colors"
                 >
                   {item.name}
                 </Link>
@@ -103,9 +100,9 @@ export const Navbar = () => {
               <Link
                 href="#contact"
                 onClick={() => setIsOpen(false)}
-                className="bg-primary text-white py-4 rounded-2xl font-bold text-center text-xl shadow-lg"
+                className="bg-slate-900 text-white py-4 rounded-xl font-bold text-center text-xl"
               >
-                Contact Me
+                Contact
               </Link>
             </div>
           </motion.div>

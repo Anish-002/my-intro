@@ -2,19 +2,19 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Smartphone, Zap, Code2, Rocket, Award, Lightbulb } from "lucide-react";
+import { Smartphone, Zap, Code2, Rocket, Award, Lightbulb, Terminal } from "lucide-react";
 import Image from "next/image";
 
 const stats = [
-  { label: "Projects Completed", value: "25+", icon: <Rocket className="w-5 h-5" /> },
-  { label: "Tech Mastered", value: "12+", icon: <Code2 className="w-5 h-5" /> },
-  { label: "Learning Hours", value: "3k+", icon: <Zap className="w-5 h-5" /> },
-  { label: "Certifications", value: "08+", icon: <Award className="w-5 h-5" /> },
+  { label: "Deployment Ready", value: "25+", icon: <Rocket className="w-4 h-4" /> },
+  { label: "Tech Stack", value: "12+", icon: <Code2 className="w-4 h-4" /> },
+  { label: "Hours Logged", value: "3k+", icon: <Zap className="w-4 h-4" /> },
+  { label: "Core Skills", value: "08+", icon: <Award className="w-4 h-4" /> },
 ];
 
 export const About = () => {
   return (
-    <section id="about" className="py-32 relative overflow-hidden bg-slate-50/50">
+    <section id="about" className="py-32 relative overflow-hidden bg-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <motion.div
@@ -24,33 +24,31 @@ export const About = () => {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative z-10 aspect-square rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl group">
-              <Image
-                src="https://picsum.photos/seed/anishdev/1000/1000"
-                alt="Anish Kushwaha"
-                width={1000}
-                height={1000}
-                className="object-cover w-full h-full scale-110 group-hover:scale-100 transition-transform duration-1000"
-                data-ai-hint="developer workspace"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent opacity-60" />
+            <div className="relative z-10 aspect-square rounded-[2rem] overflow-hidden border border-slate-200 p-3 bg-slate-50 group shadow-2xl">
+              <div className="w-full h-full rounded-[1.5rem] overflow-hidden">
+                <Image
+                  src="https://picsum.photos/seed/anishdev/1000/1000"
+                  alt="Anish Kushwaha"
+                  width={1000}
+                  height={1000}
+                  className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
+                  data-ai-hint="developer workspace"
+                />
+              </div>
             </div>
-            {/* Decorative Elements */}
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 rounded-full blur-[80px]" />
-            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-accent/10 rounded-full blur-[80px]" />
             
             <motion.div 
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
-              className="absolute -bottom-8 -right-8 bg-white p-6 rounded-3xl z-20 shadow-2xl border border-slate-100"
+              className="absolute -bottom-8 -right-8 bg-slate-900 text-white p-6 rounded-2xl z-20 shadow-2xl border border-white/10"
             >
               <div className="flex items-center gap-4">
-                <div className="bg-primary/10 p-3 rounded-2xl">
-                  <Smartphone className="w-8 h-8 text-primary" />
+                <div className="bg-white/10 p-2.5 rounded-lg">
+                  <Terminal className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-slate-400 uppercase">Expertise</p>
-                  <p className="text-lg font-bold text-slate-900">Flutter Specialist</p>
+                  <p className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">engine_ver</p>
+                  <p className="text-sm font-mono font-bold">FLUTTER.CORE.v3</p>
                 </div>
               </div>
             </motion.div>
@@ -62,38 +60,38 @@ export const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary mb-6">
-              <Lightbulb className="w-4 h-4" />
-              <span className="text-xs font-bold uppercase tracking-widest">The Story</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-50 border border-blue-100 text-blue-600 mb-6 font-mono text-[10px] font-bold tracking-widest">
+              <Lightbulb className="w-3 h-3" />
+              01_ABOUT_ME
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight text-slate-900">
-              Crafting <span className="text-gradient">Seamless</span> Mobile Experiences
+            <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight text-slate-900">
+              Turning <span className="text-gradient">Ideas</span> into <br />
+              Functional Architectures.
             </h2>
-            <p className="text-xl text-slate-600 mb-12 leading-relaxed">
-              I am Anish Kushwaha, a dedicated Flutter and Next.js developer with a focus on building
-              premium digital solutions. As a quick learner and AI enthusiast, I specialize in bridging
-              the gap between complex problems and elegant, user-centric applications.
+            <p className="text-xl text-slate-500 mb-12 leading-relaxed font-medium">
+              I am Anish Kushwaha, a dedicated Software Engineer specializing in high-performance Flutter and Next.js applications. 
+              My focus is on modular, scalable code and seamless user experiences, bridging the gap between design and production-ready systems.
             </p>
 
-            <div className="grid grid-cols-2 gap-6 mb-12">
+            <div className="grid grid-cols-2 gap-4 mb-12">
               {stats.map((stat, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100 hover:shadow-md transition-shadow"
+                  className="bg-slate-50 border border-slate-100 p-5 rounded-xl hover:bg-white hover:shadow-md transition-all"
                 >
-                  <div className="text-primary mb-3">{stat.icon}</div>
-                  <h4 className="text-3xl font-extrabold mb-1 text-slate-900">{stat.value}</h4>
-                  <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">{stat.label}</p>
+                  <div className="text-blue-600 mb-3">{stat.icon}</div>
+                  <h4 className="text-2xl font-black text-slate-900">{stat.value}</h4>
+                  <p className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
 
-            <button className="px-10 py-5 bg-slate-900 text-white rounded-full font-bold hover:bg-primary transition-all shadow-xl">
-              Download Full Resume
+            <button className="px-10 py-5 bg-white border border-slate-200 text-slate-900 rounded-lg font-bold text-sm hover:bg-slate-50 transition-all shadow-sm">
+              View_System_Specs (Resume)
             </button>
           </motion.div>
         </div>

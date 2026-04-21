@@ -1,18 +1,16 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ChevronRight, Sparkles, Rocket, Smartphone, Cpu, Globe } from "lucide-react";
+import { motion } from "framer-motion";
+import { ChevronRight, Terminal, Github, Smartphone, Code2, Cpu } from "lucide-react";
 import Link from "next/link";
 
-const titles = ["Flutter Developer", "Next.js Expert", "AI Enthusiast", "Firebase Pro"];
+const titles = ["Flutter Developer", "Full Stack Engineer", "AI Enthusiast", "Firebase Expert"];
 
 export const Hero = () => {
   const [titleIndex, setTitleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
 
   useEffect(() => {
     const currentTitle = titles[titleIndex];
@@ -37,93 +35,98 @@ export const Hero = () => {
   }, [displayText, isDeleting, titleIndex]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 pb-12 overflow-hidden bg-white">
-      {/* Background Blobs */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] animate-blob" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[120px] animate-blob animation-delay-2000" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-30" 
-             style={{ backgroundImage: 'radial-gradient(#e2e8f0 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-      </div>
-
+    <section className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-white dot-grid">
       <div className="container mx-auto px-4 md:px-6 z-10">
-        <motion.div style={{ y: y1 }} className="max-w-5xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-7"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-100 border border-slate-200 text-slate-600 mb-6">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-[10px] font-mono font-bold tracking-widest uppercase">system.status: active_for_hire</span>
+            </div>
+            
+            <h1 className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight text-slate-900 mb-8 leading-[0.9]">
+              Building <span className="text-gradient">Robust</span> <br />
+              Digital Solutions.
+            </h1>
+
+            <div className="text-xl md:text-2xl text-slate-500 font-mono mb-12 h-8">
+              <span>{`> ${displayText}`}</span>
+              <span className="w-2 h-6 bg-blue-600 inline-block ml-1 animate-pulse align-middle" />
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <Link
+                href="#projects"
+                className="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white rounded-lg font-bold text-sm hover:bg-blue-600 transition-all flex items-center justify-center gap-2 group shadow-xl shadow-slate-200"
+              >
+                ./explore_work
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                href="https://github.com/Anish-002"
+                target="_blank"
+                className="w-full sm:w-auto px-8 py-4 bg-white border border-slate-200 text-slate-900 rounded-lg font-bold text-sm hover:bg-slate-50 transition-all flex items-center justify-center gap-2"
+              >
+                <Github className="w-4 h-4" />
+                view_github
+              </Link>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary mb-8"
+            transition={{ duration: 1 }}
+            className="lg:col-span-5 hidden lg:block"
           >
-            <Sparkles className="w-4 h-4" />
-            <span className="text-xs md:text-sm font-bold uppercase tracking-[0.2em]">Open for Premium Collaboration</span>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-tr from-blue-500/10 to-indigo-500/10 rounded-[2rem] blur-2xl" />
+              <div className="relative bg-white border border-slate-200 rounded-[2rem] p-8 shadow-2xl">
+                <div className="flex items-center gap-2 mb-6 border-b border-slate-100 pb-4">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-400" />
+                    <div className="w-3 h-3 rounded-full bg-amber-400" />
+                    <div className="w-3 h-3 rounded-full bg-emerald-400" />
+                  </div>
+                  <div className="text-[10px] font-mono text-slate-400 ml-4">anish_kushwaha.dart</div>
+                </div>
+                <div className="font-mono text-sm space-y-2 text-slate-600">
+                  <p><span className="text-indigo-600">class</span> <span className="text-blue-600">Developer</span> {'{'}</p>
+                  <p className="pl-4">String name = <span className="text-emerald-600">'Anish Kushwaha'</span>;</p>
+                  <p className="pl-4">List tools = [<span className="text-emerald-600">'Flutter'</span>, <span className="text-emerald-600">'Next.js'</span>];</p>
+                  <p className="pl-4">bool lovesAI = <span className="text-orange-600">true</span>;</p>
+                  <p className="pl-4"><span className="text-indigo-600">void</span> work() {'{'}</p>
+                  <p className="pl-8 text-slate-400">// Transforming coffee to code</p>
+                  <p className="pl-8">buildPremiumApps();</p>
+                  <p className="pl-4">{'}'}</p>
+                  <p>{'}'}</p>
+                </div>
+              </div>
+
+              {/* Floating Tech Badges */}
+              <motion.div 
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity }}
+                className="absolute -top-6 -right-6 p-4 bg-white shadow-xl rounded-2xl border border-slate-100 flex items-center gap-3"
+              >
+                <Smartphone className="w-6 h-6 text-blue-500" />
+                <span className="text-xs font-bold text-slate-900">Flutter Specialist</span>
+              </motion.div>
+              <motion.div 
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, delay: 1 }}
+                className="absolute -bottom-6 -left-6 p-4 bg-white shadow-xl rounded-2xl border border-slate-100 flex items-center gap-3"
+              >
+                <Code2 className="w-6 h-6 text-indigo-500" />
+                <span className="text-xs font-bold text-slate-900">Next.js Expert</span>
+              </motion.div>
+            </div>
           </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter mb-8 leading-none text-slate-900"
-          >
-            I build powerful <br />
-            <span className="text-gradient">apps & AI tools</span>
-          </motion.h1>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="text-xl md:text-3xl text-slate-500 font-medium mb-12 h-10"
-          >
-            <span>{displayText}</span>
-            <span className="w-1 h-8 bg-primary inline-block ml-2 animate-pulse align-middle" />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6"
-          >
-            <Link
-              href="#projects"
-              className="w-full sm:w-auto px-10 py-5 bg-primary text-white rounded-full font-bold text-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 group"
-            >
-              View Projects
-              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              href="#contact"
-              className="w-full sm:w-auto px-10 py-5 bg-white border border-slate-200 text-slate-900 rounded-full font-bold text-lg hover:bg-slate-50 transition-all flex items-center justify-center gap-2 shadow-sm"
-            >
-              Hire Me
-              <Rocket className="w-5 h-5" />
-            </Link>
-          </motion.div>
-        </motion.div>
-
-        {/* Floating Icons */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-           <motion.div 
-             animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-             transition={{ duration: 5, repeat: Infinity }}
-             className="absolute top-[20%] left-[10%] p-6 bg-white shadow-xl rounded-3xl border border-slate-100 opacity-40 md:opacity-100"
-           >
-              <Smartphone className="w-12 h-12 text-blue-500" />
-           </motion.div>
-           <motion.div 
-             animate={{ y: [0, 20, 0], rotate: [0, -5, 0] }}
-             transition={{ duration: 7, repeat: Infinity }}
-             className="absolute bottom-[20%] right-[10%] p-6 bg-white shadow-xl rounded-3xl border border-slate-100 opacity-40 md:opacity-100"
-           >
-              <Cpu className="w-12 h-12 text-purple-500" />
-           </motion.div>
-           <motion.div 
-             animate={{ y: [20, 0, 20] }}
-             transition={{ duration: 6, repeat: Infinity }}
-             className="absolute top-[60%] left-[5%] p-4 bg-white shadow-lg rounded-2xl border border-slate-100 opacity-20 md:opacity-60"
-           >
-              <Globe className="w-8 h-8 text-emerald-500" />
-           </motion.div>
         </div>
       </div>
     </section>
