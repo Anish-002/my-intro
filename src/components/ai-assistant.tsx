@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState } from "react";
@@ -33,14 +32,14 @@ export const AIAssistant = () => {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-[100]">
+    <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[100]">
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            className="absolute bottom-20 right-0 w-80 md:w-96 glass-card p-6 rounded-[32px] shadow-2xl overflow-hidden"
+            className="absolute bottom-20 right-0 w-[calc(100vw-3rem)] max-w-sm md:w-96 glass-card p-6 rounded-[32px] shadow-2xl overflow-hidden"
           >
             <div className="flex items-center justify-between mb-4 pb-4 border-b border-border">
               <div className="flex items-center gap-2">
@@ -68,12 +67,14 @@ export const AIAssistant = () => {
                 </div>
               ) : (
                 <div className="space-y-4">
-                  <p className="text-sm leading-relaxed text-foreground/80 italic">
-                    "{introduction}"
-                  </p>
-                  <div className="pt-4 flex gap-2">
-                     <button className="flex-1 py-2 glass rounded-xl text-xs font-bold hover:bg-primary hover:text-white transition-all">View Resume</button>
-                     <button className="flex-1 py-2 bg-primary text-white rounded-xl text-xs font-bold hover:opacity-90 transition-all">Book a Call</button>
+                  <div className="max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
+                    <p className="text-sm leading-relaxed text-foreground/80 italic">
+                      "{introduction}"
+                    </p>
+                  </div>
+                  <div className="pt-4 flex flex-col sm:flex-row gap-2">
+                     <button className="flex-1 py-3 glass rounded-xl text-xs font-bold hover:bg-primary hover:text-white transition-all">View Resume</button>
+                     <button className="flex-1 py-3 bg-primary text-white rounded-xl text-xs font-bold hover:opacity-90 transition-all">Book a Call</button>
                   </div>
                 </div>
               )}
@@ -90,11 +91,11 @@ export const AIAssistant = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={handleToggle}
-        className={`w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-all duration-500 ${
+        className={`w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-2xl transition-all duration-500 ${
           isOpen ? "bg-accent text-white" : "bg-primary text-white"
         }`}
       >
-        {isOpen ? <X className="w-7 h-7" /> : <Bot className="w-7 h-7" />}
+        {isOpen ? <X className="w-6 h-6 md:w-7 md:h-7" /> : <Bot className="w-6 h-6 md:w-7 md:h-7" />}
         {!isOpen && (
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}

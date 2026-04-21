@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -36,7 +35,7 @@ export const Hero = () => {
   }, [displayText, isDeleting, titleIndex]);
 
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-28 pb-12 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 z-10">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
@@ -46,21 +45,21 @@ export const Hero = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-primary/20 text-primary mb-6"
           >
             <Sparkles className="w-4 h-4" />
-            <span className="text-sm font-semibold uppercase tracking-wider">Available for New Projects</span>
+            <span className="text-xs md:text-sm font-semibold uppercase tracking-wider">Available for New Projects</span>
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8"
           >
             Hi, I'm <span className="text-gradient">Anish</span> <br />
             <span className="text-foreground/90">I am a </span>
-            <span className="relative">
-              <span className="text-primary inline-block min-w-[300px] text-left md:text-center">
+            <span className="block md:inline-block relative">
+              <span className="text-primary inline-block min-w-[240px] md:min-w-[400px] text-center">
                 {displayText}
-                <span className="w-1 h-12 bg-primary inline-block ml-1 animate-pulse" />
+                <span className="w-1 h-8 md:h-12 bg-primary inline-block ml-1 animate-pulse align-middle" />
               </span>
             </span>
           </motion.h1>
@@ -69,7 +68,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
+            className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed px-4"
           >
             Passionate about building seamless digital experiences. Quick learner with 
             deep expertise in Mobile and Web development, always exploring the frontiers of AI.
@@ -79,7 +78,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4"
           >
             <Link
               href="#projects"
@@ -102,7 +101,7 @@ export const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.8 }}
-            className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
+            className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12"
           >
             {[
               { label: "Projects Completed", value: "15+" },
@@ -110,9 +109,9 @@ export const Hero = () => {
               { label: "Tech Stack", value: "10+" },
               { label: "Happy Clients", value: "05+" },
             ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <h3 className="text-3xl font-bold text-foreground mb-1">{stat.value}</h3>
-                <p className="text-sm text-muted-foreground">{stat.label}</p>
+              <div key={i} className="text-center p-4 glass rounded-2xl">
+                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-1">{stat.value}</h3>
+                <p className="text-[10px] md:text-sm text-muted-foreground uppercase tracking-wider font-semibold">{stat.label}</p>
               </div>
             ))}
           </motion.div>
