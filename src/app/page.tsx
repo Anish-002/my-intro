@@ -12,6 +12,7 @@ import { Projects } from "@/components/projects";
 import { ContactForm } from "@/components/contact-form";
 import { AIAssistant } from "@/components/ai-assistant";
 import { Footer } from "@/components/footer";
+import { CodeBackground } from "@/components/code-background";
 
 export default function Home() {
   useEffect(() => {
@@ -34,6 +35,7 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen bg-white">
+      <CodeBackground />
       <Navbar />
       <Hero />
       <About />
