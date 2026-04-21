@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect } from "react";
@@ -10,18 +9,18 @@ import { Education } from "@/components/education";
 import { Projects } from "@/components/projects";
 import { ContactForm } from "@/components/contact-form";
 import { AIAssistant } from "@/components/ai-assistant";
-import { BackgroundElements } from "@/components/background-elements";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
   useEffect(() => {
-    // Custom cursor effect logic can go here if needed
+    // Custom cursor effect
     const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor hidden md:block';
+    cursor.className = 'custom-cursor hidden lg:block';
     document.body.appendChild(cursor);
 
     const moveCursor = (e: MouseEvent) => {
-      cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
     };
 
     window.addEventListener('mousemove', moveCursor);
@@ -32,8 +31,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative min-h-screen">
-      <BackgroundElements />
+    <main className="relative min-h-screen bg-[#020617]">
       <Navbar />
       <Hero />
       <About />

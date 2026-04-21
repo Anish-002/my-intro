@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Bot, X, Sparkles, Send, Loader2 } from "lucide-react";
+import { Bot, X, Sparkles, Loader2, MessageSquare, Terminal } from "lucide-react";
 import { aiAssistantIntroduction } from "@/ai/flows/ai-assistant-introduction";
 
 export const AIAssistant = () => {
@@ -15,12 +15,12 @@ export const AIAssistant = () => {
     setLoading(true);
     try {
       const res = await aiAssistantIntroduction({ 
-        context: "Introduce Anish as a modern developer passionate about AI and mobile experiences" 
+        context: "Introduce Anish as a premium Flutter and Next.js developer who is an AI enthusiast." 
       });
       setIntroduction(res.introduction);
     } catch (error) {
       console.error(error);
-      setIntroduction("Hi! I'm Anish's AI assistant. I'm currently having trouble connecting, but you can explore Anish's work below!");
+      setIntroduction("Welcome! I am Anish's digital concierge. I help users discover his high-end work in Flutter and Next.js.");
     } finally {
       setLoading(false);
     }
@@ -32,77 +32,80 @@ export const AIAssistant = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[100]">
+    <div className="fixed bottom-10 right-10 z-[100]">
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            initial={{ opacity: 0, scale: 0.9, y: 50 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            className="absolute bottom-20 right-0 w-[calc(100vw-3rem)] max-w-sm md:w-96 glass-card p-6 rounded-[32px] shadow-2xl overflow-hidden"
+            exit={{ opacity: 0, scale: 0.9, y: 50 }}
+            className="absolute bottom-24 right-0 w-[calc(100vw-3rem)] max-w-md glass p-8 rounded-[3rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] border-white/20"
           >
-            <div className="flex items-center justify-between mb-4 pb-4 border-b border-border">
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                  <Bot className="w-6 h-6 text-primary" />
+            <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/10">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 bg-primary/20 rounded-2xl flex items-center justify-center shadow-lg">
+                  <Bot className="w-8 h-8 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm">Anish's AI Agent</h4>
-                  <div className="flex items-center gap-1">
-                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    <span className="text-[10px] text-muted-foreground font-medium">Online</span>
+                  <h4 className="font-bold text-lg text-white">Anish's Agent</h4>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-xs text-muted-foreground font-bold uppercase tracking-widest">Neural Network Active</span>
                   </div>
                 </div>
               </div>
-              <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-secondary rounded-full transition-colors">
-                <X className="w-5 h-5 text-muted-foreground" />
+              <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-white/10 rounded-full transition-colors text-white">
+                <X className="w-6 h-6" />
               </button>
             </div>
 
             <div className="min-h-[200px] flex flex-col justify-center">
               {loading ? (
-                <div className="flex flex-col items-center gap-4 text-center py-8">
-                  <Loader2 className="w-10 h-10 text-primary animate-spin" />
-                  <p className="text-sm text-muted-foreground animate-pulse">Consulting neural networks...</p>
+                <div className="flex flex-col items-center gap-6 text-center py-12">
+                  <div className="relative">
+                    <Loader2 className="w-16 h-16 text-primary animate-spin" />
+                    <Sparkles className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 text-accent animate-pulse" />
+                  </div>
+                  <p className="text-sm text-muted-foreground font-bold uppercase tracking-widest animate-pulse">Generating Intelligence...</p>
                 </div>
               ) : (
-                <div className="space-y-4">
-                  <div className="max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
-                    <p className="text-sm leading-relaxed text-foreground/80 italic">
+                <div className="space-y-8">
+                  <div className="max-h-[400px] overflow-y-auto pr-4 custom-scrollbar">
+                    <p className="text-lg leading-relaxed text-white/90 font-medium italic">
                       "{introduction}"
                     </p>
                   </div>
-                  <div className="pt-4 flex flex-col sm:flex-row gap-2">
-                     <button className="flex-1 py-3 glass rounded-xl text-xs font-bold hover:bg-primary hover:text-white transition-all">View Resume</button>
-                     <button className="flex-1 py-3 bg-primary text-white rounded-xl text-xs font-bold hover:opacity-90 transition-all">Book a Call</button>
+                  <div className="pt-6 flex flex-col sm:flex-row gap-4">
+                     <button className="flex-1 py-4 glass rounded-full text-sm font-bold hover:bg-white hover:text-black transition-all border-white/20">View Case Studies</button>
+                     <button className="flex-1 py-4 bg-primary text-white rounded-full text-sm font-bold hover:shadow-lg shadow-primary/30 transition-all">Direct Inquiry</button>
                   </div>
                 </div>
               )}
             </div>
             
-            <div className="absolute top-0 right-0 p-4 pointer-events-none opacity-10">
-              <Sparkles className="w-32 h-32 text-primary" />
+            <div className="absolute -top-10 -left-10 p-4 pointer-events-none opacity-5">
+              <Terminal className="w-64 h-64 text-primary" />
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
       <motion.button
-        whileHover={{ scale: 1.1 }}
+        whileHover={{ scale: 1.1, rotate: 5 }}
         whileTap={{ scale: 0.9 }}
         onClick={handleToggle}
-        className={`w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center shadow-2xl transition-all duration-500 ${
-          isOpen ? "bg-accent text-white" : "bg-primary text-white"
+        className={`w-16 h-16 md:w-20 md:h-20 rounded-3xl flex items-center justify-center shadow-[0_0_30px_rgba(59,130,246,0.4)] transition-all duration-500 border-2 ${
+          isOpen ? "bg-accent border-accent text-white" : "bg-primary border-primary text-white"
         }`}
       >
-        {isOpen ? <X className="w-6 h-6 md:w-7 md:h-7" /> : <Bot className="w-6 h-6 md:w-7 md:h-7" />}
+        {isOpen ? <X className="w-8 h-8 md:w-10 md:h-10" /> : <MessageSquare className="w-8 h-8 md:w-10 md:h-10" />}
         {!isOpen && (
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="absolute -top-1 -right-1 w-5 h-5 bg-accent rounded-full flex items-center justify-center"
+            className="absolute -top-2 -right-2 w-8 h-8 bg-accent rounded-2xl flex items-center justify-center border-4 border-background"
           >
-            <Sparkles className="w-3 h-3 text-white" />
+            <Sparkles className="w-4 h-4 text-white" />
           </motion.div>
         )}
       </motion.button>
