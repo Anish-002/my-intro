@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ChevronRight, Terminal, Github, Smartphone, Code2, Sparkles } from "lucide-react";
 import Link from "next/link";
 
-const titles = ["Flutter Developer", "Full Stack Engineer", "AI Enthusiast", "Firebase Expert"];
+const titles = ["Flutter Developer", "Web Developer", "Building Products", "Solving Problems"];
 
 export const Hero = () => {
   const [titleIndex, setTitleIndex] = useState(0);
@@ -36,11 +36,10 @@ export const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-white dot-grid">
-      {/* Background Glows */}
       <div className="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-blue-100/40 rounded-full blur-[120px] -z-10" />
       <div className="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-indigo-100/40 rounded-full blur-[120px] -z-10" />
 
-      <div className="w-full px-4 md:px-8 xl:px-16 2xl:px-24 z-10">
+      <div className="w-full px-6 md:px-12 xl:px-24 z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
@@ -54,19 +53,18 @@ export const Hero = () => {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 border border-slate-900/10 text-slate-600 mb-8"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-[10px] font-mono font-bold tracking-widest uppercase">system.status: active_for_hire</span>
+              <span className="text-[10px] font-mono font-bold tracking-widest uppercase">Available for new projects</span>
               <Sparkles className="w-3 h-3 text-amber-500" />
             </motion.div>
             
-            <h1 className="text-5xl sm:text-7xl md:text-8xl xl:text-9xl 2xl:text-[10rem] font-black tracking-tight text-slate-900 mb-8 leading-[0.85]">
-              Building <span className="text-gradient">Robust</span> <br />
-              Digital Solutions.
+            <h1 className="text-5xl sm:text-7xl md:text-8xl xl:text-9xl 2xl:text-[10rem] font-black tracking-tight text-slate-900 mb-8 leading-[0.9]">
+              Hi, I&apos;m Anish — I build <span className="text-gradient">apps and websites</span> that actually feel good to use.
             </h1>
 
-            <div className="text-xl md:text-2xl 2xl:text-3xl text-slate-500 font-mono mb-12 h-8 flex items-center">
+            <div className="text-xl md:text-3xl 2xl:text-4xl text-slate-500 font-mono mb-12 h-10 flex items-center">
               <span className="text-blue-600 mr-3">❯</span>
               <span>{displayText}</span>
-              <span className="w-2 h-7 md:h-9 bg-blue-600 inline-block ml-2 animate-pulse" />
+              <span className="w-2 h-7 md:h-10 bg-blue-600 inline-block ml-2 animate-pulse" />
             </div>
 
             <div className="flex flex-col sm:flex-row items-center gap-6">
@@ -74,16 +72,14 @@ export const Hero = () => {
                 href="#projects"
                 className="w-full sm:w-auto px-12 py-5 bg-slate-900 text-white rounded-2xl font-bold text-sm hover:bg-blue-600 hover:scale-105 transition-all flex items-center justify-center gap-2 shadow-2xl shadow-blue-500/20 group"
               >
-                ./explore_work
+                View My Work
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                href="https://github.com/Anish-002"
-                target="_blank"
+                href="#contact"
                 className="w-full sm:w-auto px-12 py-5 bg-white border border-slate-200 text-slate-900 rounded-2xl font-bold text-sm hover:bg-slate-50 hover:border-slate-300 hover:scale-105 transition-all flex items-center justify-center gap-2"
               >
-                <Github className="w-4 h-4" />
-                view_github
+                Contact Me
               </Link>
             </div>
           </motion.div>
@@ -110,17 +106,16 @@ export const Hero = () => {
                 </div>
                 <div className="font-mono text-sm xl:text-lg space-y-4 text-slate-600">
                   <p><span className="text-indigo-600 font-bold">class</span> <span className="text-blue-600 font-bold">Developer</span> {'{'}</p>
-                  <p className="pl-6">String name = <span className="text-emerald-600">'Anish Kushwaha'</span>;</p>
-                  <p className="pl-6">List tools = [<span className="text-emerald-600">'Flutter'</span>, <span className="text-emerald-600">'Next.js'</span>];</p>
-                  <p className="pl-6">bool lovesAI = <span className="text-orange-600">true</span>;</p>
+                  <p className="pl-6">String name = <span className="text-emerald-600">&apos;Anish Kushwaha&apos;</span>;</p>
+                  <p className="pl-6">List tools = [<span className="text-emerald-600">&apos;Flutter&apos;</span>, <span className="text-emerald-600">&apos;Next.js&apos;</span>];</p>
+                  <p className="pl-6">bool simplifiesComplexity = <span className="text-orange-600">true</span>;</p>
                   <p className="pl-6"><span className="text-indigo-600 font-bold">void</span> work() {'{'}</p>
-                  <p className="pl-12">buildPremiumApps();</p>
+                  <p className="pl-12">buildCleanExperiences();</p>
                   <p className="pl-6">{'}'}</p>
                   <p>{'}'}</p>
                 </div>
               </div>
 
-              {/* Floating Tech Badges */}
               <motion.div 
                 animate={{ y: [0, -15, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -129,7 +124,7 @@ export const Hero = () => {
                 <div className="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center">
                   <Smartphone className="w-8 h-8 text-blue-500" />
                 </div>
-                <span className="text-lg font-bold text-slate-900">Flutter Expert</span>
+                <span className="text-lg font-bold text-slate-900">Flutter</span>
               </motion.div>
               <motion.div 
                 animate={{ y: [0, 15, 0] }}
@@ -139,7 +134,7 @@ export const Hero = () => {
                 <div className="w-14 h-14 bg-indigo-500/10 rounded-xl flex items-center justify-center">
                   <Code2 className="w-8 h-8 text-indigo-500" />
                 </div>
-                <span className="text-lg font-bold text-slate-900">Next.js Guru</span>
+                <span className="text-lg font-bold text-slate-900">Next.js</span>
               </motion.div>
             </div>
           </motion.div>

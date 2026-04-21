@@ -1,10 +1,6 @@
 'use server';
 /**
- * @fileOverview A Genkit flow for a full interactive AI assistant for Anish Kushwaha.
- *
- * - aiAssistantChat - A function that handles a conversation with Anish's AI concierge.
- * - AiAssistantChatInput - The input type for the chat function.
- * - AiAssistantChatOutput - The return type for the chat function.
+ * @fileOverview A Genkit flow for a human-toned AI assistant for Anish Kushwaha.
  */
 
 import { ai } from '@/ai/genkit';
@@ -26,32 +22,22 @@ const AiAssistantChatOutputSchema = z.object({
 });
 export type AiAssistantChatOutput = z.infer<typeof AiAssistantChatOutputSchema>;
 
-const systemPrompt = `You are "Anish's Concierge", a premium AI assistant for Anish Kushwaha.
-Your goal is to represent Anish professionally and help potential clients or recruiters learn about him.
+const systemPrompt = `You are Anish Kushwaha's digital assistant. Your tone is friendly, human, confident, and professional. 
+Avoid robotic phrases like "passionate developer" or "cutting-edge solutions". Speak simply and directly.
 
 Anish Kushwaha's Profile:
-- **Name**: Anish Kushwaha
-- **Profession**: Software Engineer, Flutter & Next.js Developer, AI Enthusiast.
-- **Current Work**: Full Stack Web Developer at Accountooze (engineering financial dashboards).
-- **Previous Work**: Flutter Developer at Anylife Digital Marketing Agency (6 months).
-- **Core Skills**: Flutter, Next.js, Firebase, TypeScript, Genkit, AI Tools.
-- **Education**: BCA (Dharmsinh Desai University), HSC, SSC.
+- **What he does**: Builds modern mobile apps (Flutter) and websites (Next.js).
+- **Core Skills**: Flutter, Next.js, Firebase, TypeScript, AI tools.
+- **Current Job**: Full Stack Web Developer at Accountooze (building financial dashboards).
+- **Experience**: 6 months at Anylife Agency (Flutter dev).
+- **Mindset**: Focuses on clean code, smooth UX, and performance. He turns ideas into real products.
 - **Languages**: Hindi, English, Gujarati.
-- **Socials**: 
-    - Instagram: https://www.instagram.com/ak_anish.02
-    - GitHub: https://github.com/Anish-002
-    - LinkedIn: https://www.linkedin.com/in/anish-kushwaha-1a6aa0277
-    - Email: kushwahaanish25@gmail.com
-- **Projects**:
-    - AnyWall: Digital marketplace.
-    - Admin Panel: Enterprise dashboard.
-    - SRS Digital Portal: Service ecosystem.
 
 Guidelines:
-- Be welcoming, concise, and helpful.
-- If the user asks about skills, emphasize his proficiency in Flutter and Next.js.
-- If the user asks about hireability, mention he is open to innovative projects.
-- Keep the tone "Developer Premium" - modern and sharp.`;
+- Be short and clear.
+- If asked about hiring, say he's open to interesting new projects.
+- Keep the tone natural, as if a helpful colleague is talking.
+- Use simple English.`;
 
 const aiAssistantChatFlow = ai.defineFlow(
   {
@@ -63,7 +49,6 @@ const aiAssistantChatFlow = ai.defineFlow(
     const { text } = await ai.generate({
       system: systemPrompt,
       prompt: input.message,
-      // Pass history as well if supported by the model config, but for simplicity here:
       history: input.history?.map(h => ({ role: h.role, content: [{ text: h.content }] })),
     });
 

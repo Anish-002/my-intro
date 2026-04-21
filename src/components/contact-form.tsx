@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Mail, Phone, MapPin, CheckCircle2, Loader2 } from "lucide-react";
+import { Send, Mail, Phone, MapPin, CheckCircle2, Loader2, Github, Linkedin, Instagram, Facebook } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -20,10 +20,10 @@ import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Invalid email address"),
-  subject: z.string().min(5, "Subject must be at least 5 characters"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+  name: z.string().min(2, "Please tell me your name"),
+  email: z.string().email("I need a valid email to get back to you"),
+  subject: z.string().min(5, "A short subject helps me prioritize"),
+  message: z.string().min(10, "Tell me a bit more about your project"),
 });
 
 const SocialLogos = {
@@ -70,14 +70,14 @@ export const ContactForm = () => {
       console.log("Contact form payload:", values);
       setIsSuccess(true);
       toast({
-        title: "Message Transmitted!",
-        description: "Your message has been received by my systems.",
+        title: "Message Received!",
+        description: "I'll get back to you as soon as I can.",
       });
       form.reset();
     } catch (error) {
       toast({
         variant: "destructive",
-        title: "Transmission Failed",
+        title: "Something went wrong",
         description: "Please check your network and try again.",
       });
     } finally {
@@ -87,7 +87,7 @@ export const ContactForm = () => {
 
   return (
     <section id="contact" className="py-32 bg-slate-50 relative">
-      <div className="w-full px-4 md:px-8 xl:px-16 2xl:px-24">
+      <div className="w-full px-6 md:px-12 xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 xl:gap-40 items-start">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -99,17 +99,16 @@ export const ContactForm = () => {
               <Mail className="w-4 h-4" />
               <span className="text-xs font-bold uppercase tracking-widest">Connect</span>
             </div>
-            <h2 className="text-5xl md:text-8xl 2xl:text-9xl font-black mb-10 text-slate-900">Ready to <span className="text-primary">Innovate?</span></h2>
-            <p className="text-xl xl:text-3xl text-slate-500 mb-20 leading-relaxed max-w-4xl">
-              Whether you have a groundbreaking idea or a complex business challenge, 
-              I am here to help you build the future. Reach out and let's start something big.
+            <h2 className="text-5xl md:text-8xl font-black mb-10 text-slate-900">Let&apos;s build something <span className="text-primary">amazing.</span></h2>
+            <p className="text-xl md:text-2xl text-slate-500 mb-20 leading-relaxed max-w-4xl">
+              Have an idea or a project in mind? I&apos;d love to hear about it. Whether you need a custom mobile app or a modern website, I&apos;m here to help.
             </p>
 
             <div className="space-y-12 mb-20">
               {[
-                { icon: <Mail className="w-7 h-7" />, label: "Direct Email", value: "kushwahaanish25@gmail.com", href: "mailto:kushwahaanish25@gmail.com" },
-                { icon: <Phone className="w-7 h-7" />, label: "WhatsApp / Call", value: "+91 910 617 8432", href: "tel:+919106178432" },
-                { icon: <MapPin className="w-7 h-7" />, label: "Base Location", value: "Gujarat, India", href: "#" },
+                { icon: <Mail className="w-7 h-7" />, label: "Email Me", value: "kushwahaanish25@gmail.com", href: "mailto:kushwahaanish25@gmail.com" },
+                { icon: <Phone className="w-7 h-7" />, label: "Call / WhatsApp", value: "+91 910 617 8432", href: "tel:+919106178432" },
+                { icon: <MapPin className="w-7 h-7" />, label: "Based in", value: "Gujarat, India", href: "#" },
               ].map((contact, i) => (
                 <div key={i} className="flex items-center gap-8 group">
                   <div className="w-20 h-20 bg-white border border-slate-100 rounded-[2rem] flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-xl">
@@ -148,33 +147,33 @@ export const ContactForm = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-white p-12 md:p-16 xl:p-24 rounded-[4rem] relative shadow-2xl border border-slate-100"
+            className="bg-white p-12 md:p-16 rounded-[4rem] relative shadow-2xl border border-slate-100"
           >
             {isSuccess ? (
               <div className="flex flex-col items-center justify-center py-24 text-center space-y-10">
-                <div className="w-28 h-28 bg-primary/10 rounded-full flex items-center justify-center animate-bounce">
-                  <CheckCircle2 className="w-14 h-14 text-primary" />
+                <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center">
+                  <CheckCircle2 className="w-12 h-12 text-primary" />
                 </div>
-                <h3 className="text-5xl font-black text-slate-900">Inquiry Sent!</h3>
-                <p className="text-slate-500 text-xl max-w-md">
-                  System confirmation received. I will analyze your request and respond within 24 hours.
+                <h3 className="text-4xl font-black text-slate-900">Talk soon!</h3>
+                <p className="text-slate-500 text-lg max-w-md">
+                  Thanks for reaching out. I&apos;ll check my inbox and get back to you within 24 hours.
                 </p>
-                <Button variant="outline" onClick={() => setIsSuccess(false)} className="rounded-full px-12 h-16 font-bold text-lg">
-                  Send New Message
+                <Button variant="outline" onClick={() => setIsSuccess(false)} className="rounded-full px-10 h-14 font-bold">
+                  Send another message
                 </Button>
               </div>
             ) : (
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <FormField
                       control={form.control}
                       name="name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="font-bold text-xs uppercase tracking-widest text-slate-400">Identity</FormLabel>
+                          <FormLabel className="font-bold text-xs uppercase tracking-widest text-slate-400">Name</FormLabel>
                           <FormControl>
-                            <Input placeholder="Your Name" className="rounded-2xl h-16 bg-slate-50 border-slate-100 focus:border-primary transition-all text-lg" {...field} />
+                            <Input placeholder="Your Name" className="rounded-2xl h-14 bg-slate-50 border-slate-100 focus:border-primary transition-all text-lg" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -185,9 +184,9 @@ export const ContactForm = () => {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="font-bold text-xs uppercase tracking-widest text-slate-400">Digital Address</FormLabel>
+                          <FormLabel className="font-bold text-xs uppercase tracking-widest text-slate-400">Email</FormLabel>
                           <FormControl>
-                            <Input placeholder="Email Address" className="rounded-2xl h-16 bg-slate-50 border-slate-100 focus:border-primary transition-all text-lg" {...field} />
+                            <Input placeholder="Email Address" className="rounded-2xl h-14 bg-slate-50 border-slate-100 focus:border-primary transition-all text-lg" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -199,9 +198,9 @@ export const ContactForm = () => {
                     name="subject"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="font-bold text-xs uppercase tracking-widest text-slate-400">Objective</FormLabel>
+                        <FormLabel className="font-bold text-xs uppercase tracking-widest text-slate-400">Subject</FormLabel>
                         <FormControl>
-                          <Input placeholder="Project Inquiry" className="rounded-2xl h-16 bg-slate-50 border-slate-100 focus:border-primary transition-all text-lg" {...field} />
+                          <Input placeholder="What's this about?" className="rounded-2xl h-14 bg-slate-50 border-slate-100 focus:border-primary transition-all text-lg" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -212,11 +211,11 @@ export const ContactForm = () => {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="font-bold text-xs uppercase tracking-widest text-slate-400">Detailed Vision</FormLabel>
+                        <FormLabel className="font-bold text-xs uppercase tracking-widest text-slate-400">Message</FormLabel>
                         <FormControl>
                           <Textarea 
-                            placeholder="Describe your vision..." 
-                            className="rounded-[2.5rem] min-h-[220px] bg-slate-50 border-slate-100 focus:border-primary transition-all resize-none text-lg p-6" 
+                            placeholder="Tell me about your idea..." 
+                            className="rounded-[2rem] min-h-[180px] bg-slate-50 border-slate-100 focus:border-primary transition-all resize-none text-lg p-6" 
                             {...field} 
                           />
                         </FormControl>
@@ -226,18 +225,18 @@ export const ContactForm = () => {
                   />
                   <Button
                     type="submit"
-                    className="w-full h-20 rounded-3xl font-black text-2xl bg-slate-900 hover:bg-primary hover:shadow-2xl transition-all"
+                    className="w-full h-16 rounded-2xl font-black text-xl bg-slate-900 hover:bg-primary hover:shadow-2xl transition-all"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
                       <>
-                        <Loader2 className="mr-4 h-8 w-8 animate-spin" />
-                        Transmitting...
+                        <Loader2 className="mr-3 h-6 w-6 animate-spin" />
+                        Sending...
                       </>
                     ) : (
                       <>
-                        Initialize Connection
-                        <Send className="ml-4 h-6 w-6" />
+                        Send Message
+                        <Send className="ml-3 h-5 w-5" />
                       </>
                     )}
                   </Button>
