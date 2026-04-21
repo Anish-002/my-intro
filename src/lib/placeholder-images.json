@@ -1,3 +1,28 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "Abstract colorful gradient background",
+      "imageUrl": "https://picsum.photos/seed/101/1920/1080",
+      "imageHint": "abstract gradient"
+    },
+    {
+      "id": "project-1",
+      "description": "Mobile application interface showcase",
+      "imageUrl": "https://picsum.photos/seed/201/600/400",
+      "imageHint": "mobile app"
+    },
+    {
+      "id": "project-2",
+      "description": "Frontend dashboard mockup",
+      "imageUrl": "https://picsum.photos/seed/202/600/400",
+      "imageHint": "dashboard design"
+    },
+    {
+      "id": "project-3",
+      "description": "AI integrated platform preview",
+      "imageUrl": "https://picsum.photos/seed/203/600/400",
+      "imageHint": "artificial intelligence"
+    }
+  ]
 }
