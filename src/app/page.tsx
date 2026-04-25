@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect } from "react";
@@ -16,7 +17,7 @@ import { CodeBackground } from "@/components/code-background";
 
 export default function Home() {
   useEffect(() => {
-    // Custom cursor effect - simplified for clean vibe
+    // Custom cursor effect
     const cursor = document.createElement('div');
     cursor.className = 'custom-cursor hidden lg:block pointer-events-none fixed z-[9999] w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/30 backdrop-blur-sm -translate-x-1/2 -translate-y-1/2 transition-transform duration-100 ease-out';
     document.body.appendChild(cursor);

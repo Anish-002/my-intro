@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview A Genkit flow for a human-toned AI assistant for Anish Kushwaha.
@@ -29,7 +30,12 @@ Anish Kushwaha's Profile:
 - **What he does**: Builds modern mobile apps (Flutter) and websites (Next.js).
 - **Core Skills**: Flutter, Next.js, Firebase, TypeScript.
 - **Current Job**: Full Stack Web Developer at Accountooze (building financial dashboards).
-- **Experience**: 6 months at Anylife Agency (Flutter dev).
+- **Past Experience**: 6 months at Anylife Agency (Flutter dev).
+- **Education**: 
+  - Graduation from VNSGU (Veer Narmad South Gujarat University) in 2025.
+  - ADCA from Era Institute.
+  - HSC from Shree Krishna Rashriya Vidhyalay (2022).
+  - SSC from Suman High School No. 14 (2020).
 - **Mindset**: Focuses on clean code, smooth UX, and performance. He turns ideas into real products.
 - **Languages**: Hindi, English, Gujarati.
 
