@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { ChevronRight, Terminal, Smartphone, Code2, Sparkles, Cpu, Globe, Database } from "lucide-react";
 import Link from "next/link";
 
-const titles = ["Flutter Developer", "Web Developer", "Building Products", "Solving Problems"];
+const titles = ["Full Stack Developer","Flutter Developer", "Web Developer", "Building Products", "Solving Problems","Software Developer"];
 
 export const Hero = () => {
   const [titleIndex, setTitleIndex] = useState(0);
@@ -34,9 +34,10 @@ export const Hero = () => {
 
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, titleIndex]);
+  
 
   return (
-    <section className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-white dot-grid">
+    <section className="relative min-h-screen flex items-center pt-10 pb-12 overflow-hidden bg-white dot-grid">
       {/* Animated Background Glows */}
       <div className="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-blue-100/40 rounded-full blur-[120px] -z-10" />
       <div className="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-indigo-100/40 rounded-full blur-[120px] -z-10" />
@@ -97,14 +98,14 @@ export const Hero = () => {
                 href="#projects"
                 className="w-full sm:w-auto px-10 py-4 bg-slate-900 text-white rounded-2xl font-bold text-sm hover:bg-blue-600 hover:scale-105 transition-all flex items-center justify-center gap-2 shadow-2xl shadow-blue-500/20 group"
               >
-                View My Work
+                Explore My Projects
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="#contact"
                 className="w-full sm:w-auto px-10 py-4 bg-white border border-slate-200 text-slate-900 rounded-2xl font-bold text-sm hover:bg-slate-50 hover:border-slate-300 hover:scale-105 transition-all flex items-center justify-center gap-2"
               >
-                Contact Me
+                Let’s Work Together
               </Link>
             </div>
           </motion.div>
@@ -124,7 +125,7 @@ export const Hero = () => {
                     <div className="w-3.5 h-3.5 rounded-full bg-amber-400" />
                     <div className="w-3.5 h-3.5 rounded-full bg-emerald-400" />
                   </div>
-                  <div className="text-xs font-mono text-slate-400 ml-6 flex items-center gap-2">
+                  <div className="text-xs font-mono text-slate-400 ml-2 flex items-center gap-2">
                     <Terminal className="w-3 h-3" />
                     anish_kushwaha.dart
                   </div>
@@ -150,7 +151,7 @@ export const Hero = () => {
                 <div className="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center">
                   <Smartphone className="w-6 h-6 text-blue-500" />
                 </div>
-                <span className="text-sm font-bold text-slate-900">Flutter</span>
+                <span className="text-sm font-bold text-slate-900">.\Flutter</span>
               </motion.div>
               <motion.div 
                 animate={{ y: [0, 15, 0] }}
