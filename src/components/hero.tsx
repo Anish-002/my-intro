@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { ChevronRight, Terminal, Smartphone, Code2, Sparkles, Cpu, Globe, Database } from "lucide-react";
 import Link from "next/link";
 
-const titles = ["Full Stack Developer","Flutter Developer", "Web Developer", "Building Products", "Solving Problems","Software Developer"];
+const titles = ["Flutter developer by passion, problem solver by mindset", "I turn ideas into real apps", "Currently exploring AI + modern web to build smarter products", "Building Products", "Solving Problems", "Software Developer"];
 
 export const Hero = () => {
   const [titleIndex, setTitleIndex] = useState(0);
@@ -34,7 +34,7 @@ export const Hero = () => {
 
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, titleIndex]);
-  
+
 
   return (
     <section className="relative min-h-screen flex items-center pt-10 pb-12 overflow-hidden bg-white dot-grid">
@@ -43,21 +43,21 @@ export const Hero = () => {
       <div className="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-indigo-100/40 rounded-full blur-[120px] -z-10" />
 
       {/* Floating Tech Icons */}
-      <motion.div 
+      <motion.div
         animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-1/3 left-10 text-blue-500/20 hidden xl:block"
       >
         <Smartphone size={80} />
       </motion.div>
-      <motion.div 
+      <motion.div
         animate={{ y: [0, 20, 0], x: [0, -10, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         className="absolute bottom-1/3 right-20 text-indigo-500/20 hidden xl:block"
       >
         <Globe size={100} />
       </motion.div>
-      <motion.div 
+      <motion.div
         animate={{ scale: [1, 1.2, 1] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-1/4 right-1/4 text-emerald-500/10 hidden xl:block"
@@ -67,13 +67,13 @@ export const Hero = () => {
 
       <div className="w-full px-6 md:px-12 xl:px-24 z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="lg:col-span-7"
           >
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/5 border border-slate-900/10 text-slate-600 mb-8"
@@ -82,9 +82,9 @@ export const Hero = () => {
               <span className="text-[10px] font-mono font-bold tracking-widest uppercase">Available for new projects</span>
               <Sparkles className="w-3 h-3 text-amber-500" />
             </motion.div>
-            
+
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black tracking-tight text-slate-900 mb-8 leading-[1.1]">
-              Hi, I&apos;m Anish — I build <span className="text-gradient">modern websites</span> that actually feel good to use.
+              Hi, I&apos;m Anish — I don’t just <span className="text-gradient">write code</span> -I build things people can use.
             </h1>
 
             <div className="text-lg md:text-2xl text-slate-500 font-mono mb-12 h-10 flex items-center">
@@ -110,7 +110,7 @@ export const Hero = () => {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
@@ -143,7 +143,7 @@ export const Hero = () => {
               </div>
 
               {/* Badges */}
-              <motion.div 
+              <motion.div
                 animate={{ y: [0, -15, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -top-8 -right-8 p-6 glass-card rounded-2xl flex items-center gap-4 glow-primary z-20"
@@ -153,7 +153,7 @@ export const Hero = () => {
                 </div>
                 <span className="text-sm font-bold text-slate-900">.\Flutter</span>
               </motion.div>
-              <motion.div 
+              <motion.div
                 animate={{ y: [0, 15, 0] }}
                 transition={{ duration: 5, repeat: Infinity, delay: 0.5, ease: "easeInOut" }}
                 className="absolute -bottom-8 -left-8 p-6 glass-card rounded-2xl flex items-center gap-4 glow-accent z-20"

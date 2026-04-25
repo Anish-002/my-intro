@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: 'Anish Kushwaha | Premium Developer Portfolio',
   description: 'Flutter & Next.js Developer specializing in building high-performance apps, websites, and AI-driven solutions.',
   keywords: ["Anish Kushwaha", "Flutter Developer", "Next.js", "Firebase", "AI Tools", "Portfolio", "Mobile App Developer"],
+  icons: {
+    icon: "/images/my_logo.png",
+    apple: "/apple-icon.png",
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
     title: 'Anish Kushwaha | Premium Developer Portfolio',
     description: 'Explore the digital expertise of Anish Kushwaha.',

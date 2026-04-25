@@ -46,7 +46,8 @@ export const Navbar = () => {
               <Terminal className="w-6 h-6 text-white" />
             </div>
             <span className="text-2xl font-black tracking-tight text-slate-900">
-              ANISH<span className="text-blue-600">.DEV</span>
+              Anni.!!!
+              {/* <span className="text-blue-600"></span> */}
             </span>
           </Link>
 

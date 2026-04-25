@@ -107,7 +107,7 @@ export const ContactForm = () => {
             <div className="space-y-12 mb-20">
               {[
                 { icon: <Mail className="w-7 h-7" />, label: "Email Me", value: "kushwahaanish25@gmail.com", href: "mailto:kushwahaanish25@gmail.com" },
-                { icon: <Phone className="w-7 h-7" />, label: "Call / WhatsApp", value: "+91 910 617 8432", href: "tel:+919106178432" },
+                // { icon: <Phone className="w-7 h-7" />, label: "Call / WhatsApp", value: "+91 910 617 8432", href: "tel:+919106178432" },
                 { icon: <MapPin className="w-7 h-7" />, label: "Based in", value: "Gujarat, India", href: "#" },
               ].map((contact, i) => (
                 <div key={i} className="flex items-center gap-8 group">
