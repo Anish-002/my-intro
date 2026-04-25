@@ -14,6 +14,8 @@ import { ContactForm } from "@/components/contact-form";
 import { AIAssistant } from "@/components/ai-assistant";
 import { Footer } from "@/components/footer";
 import { CodeBackground } from "@/components/code-background";
+import { Process } from "@/components/process";
+import { ExtraSkills } from "@/components/extra-skills";
 
 export default function Home() {
   useEffect(() => {
@@ -41,8 +43,10 @@ export default function Home() {
       <Hero />
       <About />
       <Services />
+      <Process />
       <Experience />
       <Skills />
+      <ExtraSkills />
       <Education />
       <Projects />
       <ContactForm />

@@ -1,8 +1,9 @@
+
 "use client";
 
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronRight, Terminal, Smartphone, Code2, Sparkles } from "lucide-react";
+import { ChevronRight, Terminal, Smartphone, Code2, Sparkles, Cpu, Globe, Database } from "lucide-react";
 import Link from "next/link";
 
 const titles = ["Flutter Developer", "Web Developer", "Building Products", "Solving Problems"];
@@ -36,8 +37,32 @@ export const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-white dot-grid">
+      {/* Animated Background Glows */}
       <div className="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-blue-100/40 rounded-full blur-[120px] -z-10" />
       <div className="absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-indigo-100/40 rounded-full blur-[120px] -z-10" />
+
+      {/* Floating Tech Icons */}
+      <motion.div 
+        animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/3 left-10 text-blue-500/20 hidden xl:block"
+      >
+        <Smartphone size={80} />
+      </motion.div>
+      <motion.div 
+        animate={{ y: [0, 20, 0], x: [0, -10, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute bottom-1/3 right-20 text-indigo-500/20 hidden xl:block"
+      >
+        <Globe size={100} />
+      </motion.div>
+      <motion.div 
+        animate={{ scale: [1, 1.2, 1] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/4 right-1/4 text-emerald-500/10 hidden xl:block"
+      >
+        <Database size={60} />
+      </motion.div>
 
       <div className="w-full px-6 md:px-12 xl:px-24 z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
@@ -116,6 +141,7 @@ export const Hero = () => {
                 </div>
               </div>
 
+              {/* Badges */}
               <motion.div 
                 animate={{ y: [0, -15, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
